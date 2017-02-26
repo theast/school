@@ -1,3 +1,6 @@
 [
-  {"TIN173":  "Artificial Intelligence"}
+  {
+    "name":  "Artificial Intelligence",
+    "code": "TIN173"
+   }
 ]
