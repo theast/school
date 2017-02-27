@@ -1,0 +1,26 @@
+"basic.hwflisp"
+
+------------------------
+RESET
+------------------------
+#MergeState F1=     Q0
+#MergeState F0=     Q0
+#MergeState LDR=    Q0
+
+#MergeState OER=    Q1
+#MergeState LDTA=   Q1
+
+#MergeState MR=     Q2
+#MergeState G14=    Q2
+#MergeState LDPC=   Q2
+------------------------
+FETCH
+------------------------
+#MergeState MR=     Q3
+#MergeState CLRT=   Q3
+#MergeState LDI=    Q3
+#MergeState INCPC=  Q3
+------------------------
+NOP
+------------------------
+#MergeState NF=     (Q4*I00)

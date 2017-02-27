@@ -1,0 +1,16 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+File: Moment1.hwflisp
+
+ # ClearAllMemory
+ # ClearAllRegisters
+ # ClearAllStates
+ # load "FLISP.HWFLISP"
+
+ #setMemory  20=F1
+ #setMemory  21=FC
+ #setMemory  22=0A
+ #setMemory  23=E1
+ #setMemory  24=FB
+ #setMemory  25=33
+ #setMemory  26=20

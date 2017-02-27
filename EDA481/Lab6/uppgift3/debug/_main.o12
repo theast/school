@@ -1,0 +1,39 @@
+mod:_main:O12:_main.o12
+seg:text:28
+seg:bss:0
+seg:data:0
+seg:rodata:0
+C:text	A7CD0000CC03E83B351600003B351600
+C:text	001B883B1600001B8220E63D
+RG:text:_main:0000000A:O:W:_get_time:38
+RG:text:_main:0000000F:O:W:divu32:41
+RG:text:_main:00000015:O:W:_display_dec:44
+G:text:_main:00000000:__main
+SY:C:M:_main$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift3/src/c/_main.c
+SY:C:F:_main:text:__main:00000000:6
+SY:C:X:_main:6:1:text:0
+SY:C:X:_main:7:7:text:1
+SY:C:X:_main:8:47:text:1
+SY:C:X:_main:10:1:text:1B
+SY:C:Z:_main:10:1:text:1B
+SY:C:E:_main:text:__main:0000001C:10
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

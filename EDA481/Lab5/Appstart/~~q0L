@@ -1,0 +1,132 @@
+mod:__crt:O12:__crt.o12
+seg:text:124
+seg:bss:14
+seg:data:0
+seg:rodata:0
+C:text	A7FD0000FC00023D
+C:text	A7CC00003D
+C:text	1B9CCC00006C80EC808C00002408EE80
+C:text	69306E8020F1CC00008C0000271FCC00
+C:text	006C80CC00006C82EC828C0000240EEE
+C:text	80ED82E6706B306E806D8220EBCC0000
+C:text	7C0000EC868300006CFBFFFEFE000087
+C:text	C76C02FC00007C0000ECFBFFFE7C0000
+C:text	CD000FCC42407D00007C00021B843D
+C:bss	0000000000000000000000000000
+RG:text:__crt:00000010:O:W:__bss__start:183
+RG:text:__crt:00000017:O:W:__bss__end:189
+RG:text:__crt:00000024:O:W:__rom_code_enabled:206
+RG:text:__crt:0000002C:O:W:__bss__end:212
+RG:text:__crt:00000031:O:W:__data__start:216
+RG:text:__crt:00000038:O:W:__data__end:222
+RG:text:__crt:0000004B:O:W:__heap_start:243
+RG:text:__crt:0000004E:O:W:___crt_first_malloc_element:244
+RG:text:__crt:00000053:O:W:__heap_start:248
+RG:text:__crt:00000057:P:W:___crt_first_malloc_element:249
+RG:text:__crt:0000005A:O:W:___crt_first_malloc_element:252
+RG:text:__crt:00000061:O:W:___crt_first_malloc_element:259
+RG:text:__crt:00000064:O:W:___crt_first_malloc_element_m_base:260
+RG:text:__crt:00000068:P:W:___crt_first_malloc_element:263
+RG:text:__crt:0000006B:O:W:___crt_first_malloc_element_m_size:264
+RL:text:__crt:00000002:O:W:0000000A:bss:104
+RL:text:__crt:00000005:O:W:0000000A:bss:105
+RL:text:__crt:0000000A:O:W:0000000A:bss:136
+RL:text:__crt:00000074:O:W:0000000A:bss:271
+RL:text:__crt:00000077:O:W:0000000A:bss:272
+G:bss:__crt:00000000:___crt_first_malloc_element
+G:text:__crt:00000000:___crt_get_system_time
+G:text:__crt:00000008:___crt_get_msec_ptr
+G:bss:__crt:00000002:___crt_first_malloc_element_m_base
+G:bss:__crt:00000004:___crt_first_malloc_element_m_size
+G:text:__crt:0000000D:___crtInit
+SY:C:M:__crt$../src/libc/common/__crt.c
+SY:C:S:G:__crt:__crt_first_malloc_element:___crt_first_malloc_element:(typ18-__crt)
+SY:C:S:G:__crt:__crt_first_malloc_element_m_base:___crt_first_malloc_element_m_base:(typ21-__crt)
+SY:C:S:G:__crt:__crt_first_malloc_element_m_size:___crt_first_malloc_element_m_size:(typ11)
+SY:C:S:S:__crt:bss:__crt_start_time:00000006:(typ2)
+SY:C:S:S:__crt:bss:now:0000000A:(typ2)
+SY:C:F:__crt:text:___crt_get_system_time:00000000:61
+SY:C:X:__crt:61:2:text:0
+SY:C:X:__crt:64:1:text:7
+SY:C:Z:__crt:64:1:text:7
+SY:C:E:__crt:text:___crt_get_system_time:00000008:64
+SY:C:F:__crt:text:___crt_get_msec_ptr:00000008:76
+SY:C:X:__crt:76:1:text:8
+SY:C:X:__crt:79:1:text:C
+SY:C:Z:__crt:79:1:text:C
+SY:C:E:__crt:text:___crt_get_msec_ptr:0000000D:79
+SY:C:F:__crt:text:___crtInit:0000000D:93
+SY:C:X:__crt:93:1:text:D
+SY:C:S:F:__crt:__crtInit:___crtInit:(typ0)(typ30-__crt)
+SY:C:S:L:__crt:__crtInit:bottom_of_stack:6:(typ30-__crt)
+SY:C:S:F:__crt:__func__:___func__:(typ11)
+SY:C:S:L:__crt:__crtInit:src:2:(typ31-__crt)
+SY:C:S:L:__crt:__crtInit:dst:0:(typ32-__crt)
+SY:C:X:__crt:98:19:text:F
+SY:C:X:__crt:99:8:text:14
+SY:C:X:__crt:101:15:text:1B
+SY:C:X:__crt:107:3:text:23
+SY:C:X:__crt:109:18:text:2B
+SY:C:X:__crt:110:21:text:30
+SY:C:X:__crt:111:9:text:35
+SY:C:X:__crt:113:18:text:3C
+SY:C:X:__crt:120:58:text:4A
+SY:C:X:__crt:121:83:text:50
+SY:C:X:__crt:122:47:text:59
+SY:C:X:__crt:124:63:text:60
+SY:C:X:__crt:125:67:text:66
+SY:C:X:__crt:128:14:text:6D
+SY:C:X:__crt:129:1:text:79
+SY:C:Z:__crt:129:1:text:79
+SY:C:E:__crt:text:___crtInit:0000007C:129
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T:__crt: typ16-__crt Z (4)U float_long {\
+f:(0):(typ8);\
+l:(0):(typ1);\
+}
+SY:C:T:__crt: typ17-__crt Z (4)S elem {\
+sz:(0):(typ12);\
+next:(2):(typ18-__crt);\
+}
+SY:C:T:__crt: typ18-__crt a *(typ17-__crt)
+SY:C:T:__crt: typ19-__crt a *(typ3)
+SY:C:T:__crt: typ20-__crt Z (18)S tm {\
+tm_sec:(0):(typ11);\
+tm_min:(2):(typ11);\
+tm_hour:(4):(typ11);\
+tm_mday:(6):(typ11);\
+tm_mon:(8):(typ11);\
+tm_year:(10):(typ11);\
+tm_wday:(12):(typ11);\
+tm_yday:(14):(typ11);\
+tm_isdst:(16):(typ11);\
+}
+SY:C:T:__crt: typ21-__crt a *(typ3)
+SY:C:T:__crt: typ24-__crt a *(typ11)
+SY:C:T:__crt: typ25-__crt a *(typ3)
+SY:C:T:__crt: typ26-__crt a *(typ3)
+SY:C:T:__crt: typ27-__crt a *(typ3)
+SY:C:T:__crt: typ28-__crt a *(typ3)
+SY:C:T:__crt: typ29-__crt a *(typ3)
+SY:C:T:__crt: typ30-__crt a *(typ4)
+SY:C:T:__crt: typ31-__crt a *(typ3)
+SY:C:T:__crt: typ32-__crt a *(typ3)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

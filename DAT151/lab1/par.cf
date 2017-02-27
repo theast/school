@@ -1,0 +1,95 @@
+PDefs.   Program ::= [Def] ;
+
+comment "#" ;
+comment "//" ;
+comment "/*" "*/" ;
+
+DInline.   Def ::= "inline" Type CIdent "(" [Arg] ")" "{" [Stm] "}" ;
+DFun.      Def ::= Type CIdent "(" [Arg] ")" "{" [Stm] "}" ;
+DUsing.    Def ::= "using" [QConstPart] ";" ;
+DTypedef.  Def ::= "typedef" Type CIdent ";" ;
+DFunInit.  Def ::= Type CIdent "(" [Arg] ")" ";" ;
+DFunInlin. Def ::= "inline" Type CIdent "(" [Arg] ")" ";" ;
+DStruct.   Def ::= "struct" CIdent "{" [StructDecl] "}" ";" ;
+DPoint.    Def ::= Type "&" CIdent "=" CIdent ";" ;
+DDecl.     Def ::= Type [CIdent] ";" ;
+DAssign.   Def ::= Type CIdent "=" Exp ";" ;
+terminator Def "" ;
+
+rules Type   ::= "bool" | "int" | "double" | "void" | [QConstPart] | Type "&" ;
+separator nonempty Type "," ;
+
+token CIdent (letter (letter | digit | '_')*) ;
+separator nonempty CIdent "," ;
+
+AStructType.    StructDecl ::= Type CIdent ;
+terminator      StructDecl ";" ;
+
+AInitType.       Arg   ::= Type ;
+ADeclRef.        Arg   ::= Type CIdent ;
+AAssign.	       Arg   ::= Type CIdent "=" Exp ;
+AConstInitRef.	 Arg   ::= "const" Type ;
+AConstDeclRef.	 Arg   ::= "const" Type CIdent ;
+AConstsAssign.   Arg   ::= "const" Type CIdent "=" Exp ;
+separator        Arg    "," ;
+
+SStruct.	   Stm ::= "struct" CIdent "{" [StructDecl] "}" ";" ;
+SExp.        Stm ::= Exp ";" ;
+SReturn.     Stm ::= "return" Exp ";" ;
+SDecls.      Stm ::= Type [CIdent] ";" ;
+SWhile.      Stm ::= "while" "(" Exp ")" Stm ;
+SBlock.      Stm ::= "{" [Stm] "}" ;
+SIf.         Stm ::= "if" "(" Exp ")" Stm;
+SIfElse.     Stm ::= "if" "(" Exp ")" Stm "else" Stm ;
+STypedef.    Stm ::= "typedef" [QConstPart] CIdent ";" ;
+SFor.        Stm ::= "for" "(" Arg ";" Exp ";" Exp ")" Stm ;
+SConst.      Stm ::= "const" Arg ";" ;
+SInit.       Stm ::= Type CIdent "=" Exp ";" ;
+SDoWhile.    Stm ::= "do" Stm "while" "(" Exp ")" ";" ;
+terminator   Stm "" ;
+
+QConst.		  Exp16		::= [QConstPart] ;
+LiteralE.	  Exp16		::= Literal ;
+Index.		  Exp15		::=	Exp15 "[" Exp11 "]" ;
+Call.	      Exp15		::= CIdent "(" [Exp] ")" ;
+StructPr2.	Exp14		::=	Exp14 "->" Exp15 ;
+StructPr.	  Exp14		::=	Exp14 "." Exp15 ;
+ADecr.		  Exp14		::= Exp15 "--" ;
+AIncr.		  Exp14		::= Exp15 "++" ;
+Neg.		    Exp13		::=	"!"	Exp14 ;
+Deref.		  Exp13		::=	"*" Exp14 ;
+BDecr.		  Exp13		::=	"--" Exp14 ;
+BIncr.		  Exp13		::=	"++" Exp14 ;
+Modi.		    Exp12		::=	Exp12 "%" Exp13 ;
+Divi.	    	Exp12		::=	Exp12 "/" Exp13 ;
+Multi.		  Exp12		::=	Exp12 "*" Exp13 ;
+Subb.		    Exp11		::= Exp11 "-" Exp12 ;
+Addi.		    Exp11		::= Exp11 "+" Exp12 ;
+LShiftE.	  Exp10		::=	Exp10 "<<" Exp11 ;
+RShiftE.	  Exp10		::=	Exp10 ">>" Exp11 ;
+Lt.			    Exp9		::= Exp9 "<"  Exp10 ;
+Gt.			    Exp9		::= Exp9 ">"  Exp10 ;
+LtEq.		    Exp9		::= Exp9 "<=" Exp10 ;
+GtEq.		    Exp9		::= Exp9 ">=" Exp10 ;
+Eq.			    Exp8		::= Exp8 "==" Exp9 ;
+NEq.		    Exp8		::= Exp8 "!=" Exp9 ;
+And.		    Exp4		::=	Exp4 "&&" Exp5 ;
+Or.			    Exp3		::=	Exp3 "||" Exp4 ;
+Ass.		    Exp2		::=	Exp3 "=" Exp2 ;
+AssInc.		  Exp2		::=	Exp3 "+=" Exp2 ;
+AssDecr.	  Exp2		::=	Exp3 "-=" Exp2 ;
+Condi.		  Exp2		::=	Exp3 "?" Exp2 ":" Exp2 ;
+Throw.		  Exp1		::=	"throw" Exp2 ;
+coercions   Exp 16 ;
+separator   Exp "," ;
+
+StringL. Literal  ::= [String] ;
+IntL.    Literal  ::= Integer;
+CharL.	 Literal  ::= Char ;
+DoubleL. Literal  ::= Double ;
+
+NameQC.	QConstPart  ::= CIdent ;
+QC2.	  QConstPart  ::= CIdent "<" [Type] ">" ;
+
+separator nonempty String "" ;
+separator nonempty QConstPart "::" ;

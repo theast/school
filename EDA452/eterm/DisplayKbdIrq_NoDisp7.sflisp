@@ -1,0 +1,36 @@
+;
+;	DisplayKbdIrq.sflisp
+;
+KBD_DATA	EQU	$FB
+KBD_OUT		EQU	$FC
+DAV_BIT		EQU	%10000000
+START		EQU	$20
+
+		ORG	START
+		LDA	#$FF
+		STA	KBD_OUT
+		LDSP	#$20
+		ANDCC	#%11101111
+DisplayKbdIrq:	JMP	DisplayKbdIrq
+		
+GetKeyIrq:	JSR	GetKey
+		STA	cbuffer
+		LDA	#$FF
+		STA	KBD_OUT
+		RTI
+
+GetKey:		LDA	KBD_DATA
+		ANDA	#$0F
+		CMPA	#$0F
+;		CMPA	#DAV_BIT
+		BCS	GetKey
+		LDA	cbuffer
+		ADDA	#$01
+		RTS
+		
+		ORG	$FD
+		FCB	GetKeyIrq
+		ORG	$00
+cbuffer:	RMB	1
+		ORG	$FF
+		FCB	START

@@ -1,0 +1,41 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+
+
+File: DisplayKbdIrq_NoDisp7.lst
+                        1. ;
+                        2. ;	DisplayKbdIrq.sflisp
+                        3. ;
+FB                      4. KBD_DATA	EQU	$FB
+FC                      5. KBD_OUT		EQU	$FC
+80                      6. DAV_BIT		EQU	%10000000
+20                      7. START		EQU	$20
+                        8. 
+20                      9. 		ORG	START
+20 F0 FF               10. 		LDA	#$FF
+22 E1 FC               11. 		STA	KBD_OUT
+24 92 20               12. 		LDSP	#$20
+26 01 EF               13. 		ANDCC	#%11101111
+28 33 28               14. DisplayKbdIrq:	JMP	DisplayKbdIrq
+2A                     15. 		
+2A 34 33               16. GetKeyIrq:	JSR	GetKey
+2C E1 00               17. 		STA	cbuffer
+2E F0 FF               18. 		LDA	#$FF
+30 E1 FC               19. 		STA	KBD_OUT
+32 44                  20. 		RTI
+                       21. 
+33 F1 FB               22. GetKey:		LDA	KBD_DATA
+35 99 0F               23. 		ANDA	#$0F
+37 97 0F               24. 		CMPA	#$0F
+                       25. ;		CMPA	#DAV_BIT
+39 28 F8               26. 		BCS	GetKey
+3B F1 00               27. 		LDA	cbuffer
+3D 96 01               28. 		ADDA	#$01
+3F 43                  29. 		RTS
+40                     30. 		
+FD                     31. 		ORG	$FD
+FD 2A                  32. 		FCB	GetKeyIrq
+00                     33. 		ORG	$00
+00 00                  34. cbuffer:	RMB	1
+FF                     35. 		ORG	$FF
+FF 20                  36. 		FCB	START

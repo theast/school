@@ -1,0 +1,21 @@
+"lab_3-2-ins.hwflisp"
+
+---------------------------
+MOVE
+---------------------------
+#MergeState MR=    (Q4*IDF)
+#MergeState LDTA=  (Q4*IDF)
+#MergeState INCP=  (Q4*IDF)
+
+#MergeState MR=    (Q5*IDF)
+#MergeState LDA=   (Q5*IDF)
+#MergeState G14=   (Q5*IDF)
+
+#MergeState MR=    (Q6*IDF)
+#MergeState LDTA=  (Q6*IDF)
+#MergeState INCPC= (Q6*IDF)
+
+#MergeState MW=    (Q7*IDF)
+#MergeState G14=   (Q7*IDF)
+#MergeState OEA=   (Q7*IDF)
+#MergeState NF=    (Q7*IDF)

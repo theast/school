@@ -1,0 +1,64 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+
+
+File: DisplayKbdIrq.lst
+                        1. ;
+                        2. ;	DisplayKbdIrq.sflisp
+                        3. ;
+FB                      4. KBD_DATA	EQU	$FB
+80                      5. DAV_BIT		EQU	%10000000
+FC                      6. SEGMENT7	EQU	$FC
+77                      7. SEG_0		EQU	$77
+22                      8. SEG_1		EQU	$22
+5B                      9. SEG_2		EQU	$5B
+6B                     10. SEG_3		EQU	$6B
+2E                     11. SEG_4		EQU	$2E
+6D                     12. SEG_5		EQU	$6D
+7D                     13. SEG_6		EQU	$7D
+23                     14. SEG_7		EQU	$23
+7F                     15. SEG_8		EQU	$7F
+2F                     16. SEG_9		EQU	$2F
+3F                     17. SEG_A		EQU	$3F
+7C                     18. SEG_B		EQU	$7C
+55                     19. SEG_C		EQU	$55
+7A                     20. SEG_D		EQU	$7A
+5D                     21. SEG_E		EQU	$5D
+1D                     22. SEG_F		EQU	$1D
+                       23. 
+20                     24. 		ORG	$20
+20 92 20               25. DisplayKbdIrq:	LDSP	#$20
+22 01 EF               26. 		ANDCC	#%11101111
+24 F1 00               27. DisplayKbdIrq_1:LDA	cbuffer
+26 34 44               28. 		JSR	DispSeg7
+28 33 24               29. 		JMP	DisplayKbdIrq_1
+2A                     30. 		
+2A 34 2F               31. GetKeyIrq:	JSR	GetKey
+2C E1 00               32. 		STA	cbuffer
+2E 44                  33. 		RTI
+                       34. 
+2F BE FF               35. GetKey:		LEASP	-1,SP
+31 F1 FB               36. GetKey_1:	LDA	KBD_DATA
+33 97 80               37. 		CMPA	#DAV_BIT
+35 29 FA               38. 		BCC	GetKey_1
+37 E2 00               39. 		STA	0,SP
+39 F1 FB               40. GetKey_2:	LDA	KBD_DATA
+3B 97 80               41. 		CMPA	#DAV_BIT
+3D 28 FA               42. 		BCS	GetKey_2
+3F F2 00               43. 		LDA	0,SP
+41 BE 01               44. 		LEASP	1,SP
+43 43                  45. 		RTS
+44                     46. 		
+44 90 70               47. DispSeg7:	LDX	#Segmentkod
+46 F4                  48. 		LDA	A,X
+47 E1 FC               49. 		STA	SEGMENT7
+49 43                  50. 		RTS
+4A                     51. 		
+FD                     52. 		ORG	$FD
+FD 2A                  53. 		FCB	GetKeyIrq
+70                     54. 		ORG	$70
+70 77 22 5B 6B 2E 6D   55. Segmentkod:	FCB	SEG_0,SEG_1,SEG_2,SEG_3,SEG_4,SEG_5,SEG_6,SEG_7,SEG_8,SEG_9,SEG_A,SEG_B,SEG_C,SEG_D,SEG_E,SEG_F
+     7D 23 7F 2F 3F 7C
+     55 7A 5D 1D      
+00                     56. 		ORG	$00
+00 00                  57. cbuffer:	RMB	1

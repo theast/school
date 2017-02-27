@@ -1,0 +1,34 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+File: DisplaySegE.hwflisp
+
+ # ClearAllMemory
+ # ClearAllRegisters
+ #setMemory  20=90
+ #setMemory  21=70
+ #setMemory  22=F1
+ #setMemory  23=FC
+ #setMemory  24=97
+ #setMemory  25=0A
+ #setMemory  26=28
+ #setMemory  27=04
+ #setMemory  28=F0
+ #setMemory  29=5D
+ #setMemory  2A=21
+ #setMemory  2B=01
+ #setMemory  2C=F4
+ #setMemory  2D=E1
+ #setMemory  2E=FB
+ #setMemory  2F=33
+ #setMemory  30=22
+ #setMemory  70=77
+ #setMemory  71=22
+ #setMemory  72=5B
+ #setMemory  73=6B
+ #setMemory  74=2E
+ #setMemory  75=6D
+ #setMemory  76=7D
+ #setMemory  77=23
+ #setMemory  78=7F
+ #setMemory  79=2F
+ #setMemory  FF=20

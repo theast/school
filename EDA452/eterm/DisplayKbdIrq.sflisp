@@ -1,0 +1,57 @@
+;
+;	DisplayKbdIrq.sflisp
+;
+KBD_DATA	EQU	$FB
+DAV_BIT		EQU	%10000000
+SEGMENT7	EQU	$FC
+SEG_0		EQU	$77
+SEG_1		EQU	$22
+SEG_2		EQU	$5B
+SEG_3		EQU	$6B
+SEG_4		EQU	$2E
+SEG_5		EQU	$6D
+SEG_6		EQU	$7D
+SEG_7		EQU	$23
+SEG_8		EQU	$7F
+SEG_9		EQU	$2F
+SEG_A		EQU	$3F
+SEG_B		EQU	$7C
+SEG_C		EQU	$55
+SEG_D		EQU	$7A
+SEG_E		EQU	$5D
+SEG_F		EQU	$1D
+
+		ORG	$20
+DisplayKbdIrq:	LDSP	#$20
+		ANDCC	#%11101111
+DisplayKbdIrq_1:LDA	cbuffer
+		JSR	DispSeg7
+		JMP	DisplayKbdIrq_1
+		
+GetKeyIrq:	JSR	GetKey
+		STA	cbuffer
+		RTI
+
+GetKey:		LEASP	-1,SP
+GetKey_1:	LDA	KBD_DATA
+		CMPA	#DAV_BIT
+		BCC	GetKey_1
+		STA	0,SP
+GetKey_2:	LDA	KBD_DATA
+		CMPA	#DAV_BIT
+		BCS	GetKey_2
+		LDA	0,SP
+		LEASP	1,SP
+		RTS
+		
+DispSeg7:	LDX	#Segmentkod
+		LDA	A,X
+		STA	SEGMENT7
+		RTS
+		
+		ORG	$FD
+		FCB	GetKeyIrq
+		ORG	$70
+Segmentkod:	FCB	SEG_0,SEG_1,SEG_2,SEG_3,SEG_4,SEG_5,SEG_6,SEG_7,SEG_8,SEG_9,SEG_A,SEG_B,SEG_C,SEG_D,SEG_E,SEG_F
+		ORG	$00
+cbuffer:	RMB	1

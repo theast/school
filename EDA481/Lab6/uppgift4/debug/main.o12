@@ -1,0 +1,92 @@
+mod:main:O12:main.o12
+seg:text:87
+seg:bss:0
+seg:data:0
+seg:rodata:21
+C:text	A716000016000087C1071822003459CE
+C:text	000005E7160000182000271600002022
+C:text	160000201D1600002018160000201316
+C:text	0000200E1600002009CE000034160000
+C:text	1B821820FFBE3D
+C:text	00000000000000000000000000000000
+C:rodata	00010101010101010201050202020204
+C:rodata	04030802FF
+RG:text:main:00000002:O:W:_init_drill:61
+RG:text:main:00000005:O:W:_get_key:67
+RG:text:main:00000015:O:W:_MotorStart:78
+RG:text:main:0000001C:O:W:_MotorStop:85
+RG:text:main:00000021:O:W:_DrillUp:92
+RG:text:main:00000026:O:W:_DrillDown:99
+RG:text:main:0000002B:O:W:_Step:106
+RG:text:main:00000030:O:W:_DrillHole:113
+RG:text:main:00000035:O:W:_ToRefPos:120
+RG:text:main:0000003A:O:W:_pattern:127
+RG:text:main:0000003E:O:W:_DrillAuto:129
+RL:text:main:00000010:O:W:00000047:text:72
+RL:text:main:00000047:O:W:00000014:text:145
+RL:text:main:00000049:O:W:0000001B:text:145
+RL:text:main:0000004B:O:W:00000020:text:145
+RL:text:main:0000004D:O:W:00000025:text:145
+RL:text:main:0000004F:O:W:0000002A:text:145
+RL:text:main:00000051:O:W:0000002F:text:145
+RL:text:main:00000053:O:W:00000034:text:145
+RL:text:main:00000055:O:W:00000039:text:145
+G:text:main:00000000:_main
+G:rodata:main:00000000:_pattern
+SY:C:M:main$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift4/src/c/main.c
+SY:C:S:G:main:pattern:_pattern:(typ16-main)
+SY:C:F:main:text:_main:00000000:11
+SY:C:X:main:11:1:text:0
+SY:C:X:main:12:12:text:1
+SY:C:X:main:13:7:text:4
+SY:C:X:main:14:17:text:4
+SY:C:X:main:15:3:text:14
+SY:C:X:main:15:22:text:14
+SY:C:X:main:15:26:text:17
+SY:C:X:main:16:3:text:1B
+SY:C:X:main:16:21:text:1B
+SY:C:X:main:16:25:text:1E
+SY:C:X:main:17:3:text:20
+SY:C:X:main:17:19:text:20
+SY:C:X:main:17:23:text:23
+SY:C:X:main:18:3:text:25
+SY:C:X:main:18:21:text:25
+SY:C:X:main:18:25:text:28
+SY:C:X:main:19:3:text:2A
+SY:C:X:main:19:16:text:2A
+SY:C:X:main:19:20:text:2D
+SY:C:X:main:20:3:text:2F
+SY:C:X:main:20:21:text:2F
+SY:C:X:main:20:25:text:32
+SY:C:X:main:21:3:text:34
+SY:C:X:main:21:20:text:34
+SY:C:X:main:21:24:text:37
+SY:C:X:main:22:3:text:39
+SY:C:X:main:22:28:text:39
+SY:C:X:main:22:32:text:42
+SY:C:X:main:23:3:text:42
+SY:C:X:main:23:13:text:42
+SY:C:X:main:26:1:text:46
+SY:C:Z:main:26:1:text:46
+SY:C:E:main:text:_main:00000057:26
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T:main: typ16-main A (21)(typ4)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

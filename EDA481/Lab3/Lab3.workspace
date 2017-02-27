@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="Lab3" Database="./Lab3.tags">
+  <Project Name="till_morse" Path="till_morse/till_morse.project" Active="No"/>
+  <Project Name="tolka_morse" Path="tolka_morse/tolka_morse.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Project Name="Lab3" ConfigName="Debug"/>
+      <Project Name="till_morse" ConfigName="Debug"/>
+      <Project Name="till_morse" ConfigName="Debug"/>
+      <Project Name="tolka_morse" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Lab3" ConfigName="Release"/>
+      <Project Name="till_morse" ConfigName="Release"/>
+      <Project Name="till_morse" ConfigName="Release"/>
+      <Project Name="tolka_morse" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

@@ -1,0 +1,10 @@
+	export		__init_irq
+	export		_irq
+	import		_clock_inter
+	
+__init_irq:	CLI
+		RTS
+	
+_irq:		JSR		_clock_inter
+		RTI
+	

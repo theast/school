@@ -1,0 +1,17 @@
+Uppgift 6)
+
+Skriv detta i matlab;
+
+solve('c=0.5*d+0.5', 
+'e=0.5*c+0.5*f', 
+'d=0.5*e+0.5*d', 
+'g=0.5*c', 
+'h=0.5*g+0.5*d', 
+'f=0.5*h+0.5*f', 
+'j=0.5*d+0.5*f')
+
+och sedan..
+
+soln = [ans.j]
+
+1-svaret

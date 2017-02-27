@@ -1,0 +1,257 @@
+# V 2.1 (8 February, 2013)
+# Created by Xcc-project manager 
+# DO NOT EDIT
+#
+#-----------------------------------------------
+#SETTINGS SECTION
+##CSIMSET="..\ml15-simple.hc12sim"
+##EXTMAKEFILE=""
+##EXTMAKEFILEPARAM=""
+#+[BackCol(0)]=
+#+16776960
+#+[TextCol(0)]=
+#+0
+#+[NewLine(0)]=
+#+2
+#+[LineFeed(0)]=
+#+2
+#+[LoadCom(0)]=
+#+l\n
+#+[Baud(0)(0)]=
+#+9600
+#+[Dtr(0)(0)]=
+#+0
+#+[Rts(0)(0)]=
+#+0
+#+[Cts(0)(0)]=
+#+0
+#+[Dsr(0)(0)]=
+#+0
+#+[ByteS(0)(0)]=
+#+8
+#+[Parity(0)(0)]=
+#+0
+#+[StopB(0)(0)]=
+#+0
+#+[EXonO(0)(0)]=
+#+0
+#+[EXonI(0)(0)]=
+#+0
+#-----------------------------------------------
+##TYPE E
+##USESTARTUP=0
+##OTYPE=1
+#-----------------------------------------------
+#OPEN FILE SECTION
+#-----------------------------------------------
+#PROJECT FILES SECTION
+
+FILES= \
+	"..\src\asm\_startup.s12" "" "1"  \
+	"..\src\c\ports.h" "" "1"  \
+	".\src\c\main.c" "" "1"  \
+	".\src\c\displayML15.h" "" "1"  \
+	".\src\c\keyboardML15.h" "" "1"  \
+	".\src\c\displayML15.c" "" "1"  \
+	".\src\c\keyboardML15.c" "" "1" 
+#-----------------------------------------------
+#PROJECT OPTIONS SECTION
+
+!IFCONF	Debug
+##TARGETNAME="uppgift2_Debug"
+##OBJDIR="debug"
+##TARGDIR="debug"
+##STDINCPATH=0
+##STDLIBPATH=0
+ASFLAGS=-g -e
+CCFLAGS=-g -w4 -O
+LNFLAGS=-g -i default.lsc
+#-----------------------------------------------
+#OBJECT FILES SECTION
+
+OBJ= \
+	"debug\_startup.o12" \
+	"debug\main.o12" \
+	"debug\displayML15.o12" \
+	"debug\keyboardML15.o12"
+#-----------------------------------------------
+#DEFINES/UNDEFINES SECTION
+
+ASMDEFINES= \
+	_DEBUG
+
+DEFINES= \
+	_DEBUG
+
+UNDEFINES=
+#-----------------------------------------------
+#INCLUDES AND LIBRARIES SECTION
+#
+
+INCLUDES=
+
+LIBRARIES=
+
+LIBRARYPATHS=
+#-----------------------------------------------
+#MACROS for MAKE
+
+INC=
+
+ASMDEF= \
+ -D_DEBUG
+
+DEF= \
+ -D_DEBUG
+
+UNDEF=
+
+LIB=
+
+LIBPATH=
+#-----------------------------------------------
+#RULES SECTION CONFIGURATION 
+
+# Application
+"debug\uppgift2_Debug.s19": $(OBJ)
+	LINK -o"debug\uppgift2_Debug.s19" $(LNFLAGS)  $(LIBPATH) $(LIB) -l"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12\libccd.e12"  $(OBJ)
+#-----------------------------------------------
+
+
+# Clean
+clean:
+	RMFI "debug\uppgift2_Debug.s19"
+	RMFI "debug\_startup.o12"
+	RMFI "debug\ports.o12"
+	RMFI "debug\main.o12"
+	RMFI "debug\displayML15.o12"
+	RMFI "debug\keyboardML15.o12"
+	RMFI "debug\displayML15.o12"
+	RMFI "debug\keyboardML15.o12"
+#-----------------------------------------------
+
+
+# Dependencies and their build rules
+
+"debug\_startup.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12"
+	ASSM  $(ASFLAGS) $(ASMDEF) -o"debug\_startup.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12"
+"debug\main.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/main.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  $(INC) -o"debug\main.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/main.c"
+"debug\displayML15.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  $(INC) -o"debug\displayML15.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c"
+"debug\keyboardML15.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  $(INC) -o"debug\keyboardML15.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c"
+!EICONF	Debug
+
+!IFCONF	Final
+##TARGETNAME="uppgift2_Final"
+##OBJDIR="final"
+##TARGDIR="final"
+##STDINCPATH=1
+##STDLIBPATH=1
+ASFLAGS=-e
+CCFLAGS=-w4 -O
+LNFLAGS=-i default.lsc
+#-----------------------------------------------
+#OBJECT FILES SECTION
+
+OBJ= \
+	"final\_startup.o12" \
+	"final\main.o12" \
+	"final\displayML15.o12" \
+	"final\keyboardML15.o12"
+#-----------------------------------------------
+#DEFINES/UNDEFINES SECTION
+
+ASMDEFINES=
+
+DEFINES=
+
+UNDEFINES=
+#-----------------------------------------------
+#INCLUDES AND LIBRARIES SECTION
+#
+
+INCLUDES=
+
+LIBRARIES= \
+	"libc.e12" \
+	"libe.e12" \
+	"librtk.e12"
+
+LIBRARYPATHS=
+#-----------------------------------------------
+#MACROS for MAKE
+
+INC=
+
+ASMDEF=
+
+DEF=
+
+UNDEF=
+
+LIB= \
+	-l"libc.e12" \
+	-l"libe.e12" \
+	-l"librtk.e12"
+
+LIBPATH=
+#-----------------------------------------------
+#RULES SECTION CONFIGURATION 
+
+# Application
+"final\uppgift2_Final.s19": $(OBJ)
+	LINK -o"final\uppgift2_Final.s19" $(LNFLAGS)  $(LIBPATH) $(LIB) -L"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12" -l"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12\libcc.e12"  $(OBJ)
+#-----------------------------------------------
+
+
+# Clean
+clean:
+	RMFI "final\uppgift2_Final.s19"
+	RMFI "final\_startup.o12"
+	RMFI "final\ports.o12"
+	RMFI "final\main.o12"
+	RMFI "final\displayML15.o12"
+	RMFI "final\keyboardML15.o12"
+	RMFI "final\displayML15.o12"
+	RMFI "final\keyboardML15.o12"
+#-----------------------------------------------
+
+
+# Dependencies and their build rules
+
+"final\_startup.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12"
+	ASSM  $(ASFLAGS) $(ASMDEF) -o"final\_startup.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12"
+"final\main.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/main.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  \
+	-I"C:\Program Files (x86)\GMV\EducDist\bin\..\include" $(INC) -o"final\main.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/main.c"
+"final\displayML15.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  \
+	-I"C:\Program Files (x86)\GMV\EducDist\bin\..\include" $(INC) -o"final\displayML15.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c"
+"final\keyboardML15.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/src/c/ports.h"\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.h"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  \
+	-I"C:\Program Files (x86)\GMV\EducDist\bin\..\include" $(INC) -o"final\keyboardML15.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c"
+!EICONF	Final

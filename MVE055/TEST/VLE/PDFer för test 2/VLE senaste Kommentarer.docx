@@ -1,0 +1,13 @@
+﻿4 Hypothesis testing
+
+Q2 c) är fel??
+
+blir rätt såhär:
+
+för mu = 41 och listan 
+28	45	45	13	27	19	25	22
+19	21	31	46	36
+(observera att den har 13 värden)
+räkna ut mean och standard deviation för listan. 
+
+(mean-mu) / (standard deviation /sqrt(13))

@@ -1,0 +1,667 @@
+S0030000FC
+S10D1000CF3FFF161138A720FD00B2
+S123100A1B9FC6017B09C2C6807B09C37909C26980E680C10625062012628020F4E68087D4
+S123102AE383B745E6007B09C320EE7909C37909C31B813D1B98C6056B81E7812C1120264D
+S123104A6381CE000AEC8ACD0000116D8A20EBEC8ACE000A18101A826B80E681B7141AE641
+S123106AE6806B0020DA1A823416100A1B821B883D1B9FF609C06B80C18024F7F609C06B30
+S123108A80C18025F7E68087C47F1B813DA787C77C14C07C14BEF60038CA807B0038C68058
+S12310AA7B0037F6003BCA107B003BCC11347C3FF2CC11347C3FF01611313DA7FD14BEFC2E
+S12310CA14C0C300012401027D14BE7C14C0C6807B00373DA7CD0000CC000A3B35FD14BEE6
+S12310EAFC14C03B3516132B1B883DCD0000CC000A3B35ED86EC883B3516117F1B883B354B
+S123110AFD14BEFC14C03B351611571B886D826C84ED82EC843B35FD14BEFC14C03B35163E
+S123112A11661B8825EB3D10EF3D1610C50BA7161097CD0000CC03E83B351610DE3B351626
+S123114A117F1B883B16103E1B8220E63DEC84E388B7C6EC82E987A986B7C63DEC84A38815
+S123116A3939EC8438E288B721E4B0CAFBA28639E4B0B7123D1B9987C76C856C83C6206B7E
+S123118A82CD8000CC00003B35ED8DEC8F3B3516131C1B888D000026058C0000270210F775
+S12311AA2707CC00016C80200487C76C80CD0000CC00013B35ED8DEC8F3B351614961B880A
+S12311CA6D896C8BCD0000CC00013B35ED87EC893B351614961B886D836C85EC808C000075
+S12311EA2717CD0000CC00013B35ED87EC893B351614871B886D836C85ED8DEC8F3B35EDB9
+S123120A87EC893B351611661B881825002CED8DEC8F3B35ED87EC893B351614AF1B886D14
+S123122A836C85CD0000CC00013B35ED8DEC8F3B351614871B886D896C8B6382E6821826F1
+S123124AFF3FED89EC8B1B873D1B9ACD000087C73B35EDF010ECF0123B351611661B882C8F
+S123126A14ED8CEC8EB7C64151B7C64151C300012401022004ED8CEC8E3B35CD000087C7AE
+S123128A3B35EDF010ECF0123B351611661B882C14ED8CEC8EB7C64151B7C64151C3000140
+S12312AA2401022004ED8CEC8E3B3516117F1B886D826C84CD000087C73B35EDF010ECF0F6
+S12312CA123B351611661B882C05CC0001200287C76C80CD000087C73B35ED8CEC8E3B3506
+S12312EA1611661B882C05CC0001200287C7E881A8808C00002714ED82EC84B7C64151B745
+S123130AC64151C300012401022004ED82EC841B863DEC82A486E487B7C6EC84A488E48912
+S123132A3D1B92CD0000CC00016D826C8487C76C8C6C8A87C76C80EC808C00202D0B18203E
+S123134A006BEE80086E8020EEEDF010ECF0123B35ED86EC883B3516131C1B888D00002665
+S123136A058C0000270210F718270026EC80CD00003B35EDF018ECF01A3B351614961B88D2
+S123138A3B35ED8EECF0103B351611571B886D8A6C8CCD0000CC00013B35ED86EC883B3587
+S12313AA1614961B886D826C841820FF95ED8AEC8C1B8E3D1B9ACD000087C73B35EDF0100F
+S12313CAECF0123B351611661B882C14ED8CEC8EB7C64151B7C64151C30001240102200411
+S12313EAED8CEC8E3B35CD000087C73B35EDF010ECF0123B351611661B882C14ED8CEC8E43
+S123140AB7C64151B7C64151C300012401022004ED8CEC8E3B3516132B1B886D826C84CD8B
+S123142A000087C73B35EDF010ECF0123B351611661B882C05CC0001200287C76C80CD003E
+S123144A0087C73B35ED8CEC8E3B351611661B882C05CC0001200287C7E881A8808C0000A2
+S123146A2714ED82EC84B7C64151B7C64151C300012401022004ED82EC841B863DEC82AA42
+S123148A86EA87B7C6EC84AA88EA893DEC84ED823635A68C841F270A5865826581658043DB
+S11714AA26F631323DEC84A388B7C6EC82E287A286B7C63D9D
+S10714BE0000000026
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:displayML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c
+SX:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SX:C:S:L:displayML15:display_digits:digits:3:(typ11)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_digits:i:0:(typ4)
+SX:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SX:C:S:L:displayML15:display_dec:dec:10:(typ12)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_dec:digits:2:(typ18-displayML15)
+SX:C:S:L:displayML15:display_dec:i:1:(typ3)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:displayML15: typ16-displayML15 A (-1)(typ4)
+SX:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:keyboardML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c
+SX:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SX:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SX:C:S:L:keyboardML15:get_key:data:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:clock$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift3/src/c/clock.c
+SX:C:S:F:clock:hold:_hold:(typ0)(typ2)
+SX:C:S:L:clock:hold:ms:2:(typ2)
+SX:C:S:F:clock:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:M:_clock$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift3/src/asm/_clock.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:main$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift3/src/c/main.c
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_add32$../src/libcc/common/_add32.c
+SX:C:S:F:_add32:add32:add32:(typ2)(typ2)(typ2)
+SX:C:S:L:_add32:add32:a:2:(typ2)
+SX:C:S:L:_add32:add32:b:6:(typ2)
+SX:C:S:F:_add32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_add32: typ16-_add32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_add32: typ17-_add32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_add32);\
+}
+SX:C:T:_add32: typ18-_add32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_cmp32$../src/libcc/common/_cmp32.c
+SX:C:S:F:_cmp32:cmp32:cmp32:(typ2)(typ2)(typ2)
+SX:C:S:L:_cmp32:cmp32:a:2:(typ2)
+SX:C:S:L:_cmp32:cmp32:b:6:(typ2)
+SX:C:S:F:_cmp32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_cmp32: typ16-_cmp32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_cmp32: typ17-_cmp32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_cmp32);\
+}
+SX:C:T:_cmp32: typ18-_cmp32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_div32$../src/libcc/common/_div32.c
+SX:C:S:F:_div32:divu32:divu32:(typ2)(typ2)(typ2)
+SX:C:S:L:_div32:divu32:a:9:(typ2)
+SX:C:S:L:_div32:divu32:b:13:(typ2)
+SX:C:S:F:_div32:__func__:___func__:(typ11)
+SX:C:S:L:_div32:divu32:rest:3:(typ2)
+SX:C:S:L:_div32:divu32:count:2:(typ4)
+SX:C:S:L:_div32:divu32:c:0:(typ5)
+SX:C:S:F:_div32:divs32:divs32:(typ1)(typ1)(typ1)
+SX:C:S:L:_div32:divs32:a:8:(typ1)
+SX:C:S:L:_div32:divs32:b:12:(typ1)
+SX:C:S:F:_div32:__func__:___func__:(typ11)
+SX:C:S:L:_div32:divs32:r:2:(typ1)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_div32: typ16-_div32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_div32: typ17-_div32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_div32);\
+}
+SX:C:T:_div32: typ18-_div32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_and32$../src/libcc/common/_and32.c
+SX:C:S:F:_and32:and32:and32:(typ2)(typ2)(typ2)
+SX:C:S:L:_and32:and32:a:2:(typ2)
+SX:C:S:L:_and32:and32:b:6:(typ2)
+SX:C:S:F:_and32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_and32: typ16-_and32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_and32: typ17-_and32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_and32);\
+}
+SX:C:T:_and32: typ18-_and32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_mul32$../src/libcc/common/_mul32.c
+SX:C:S:F:_mul32:mulu32:mulu32:(typ2)(typ2)(typ2)
+SX:C:S:L:_mul32:mulu32:a:16:(typ2)
+SX:C:S:L:_mul32:mulu32:b:20:(typ2)
+SX:C:S:F:_mul32:__func__:___func__:(typ11)
+SX:C:S:L:_mul32:mulu32:result:10:(typ2)
+SX:C:S:L:_mul32:mulu32:pp:6:(typ2)
+SX:C:S:L:_mul32:mulu32:mask:2:(typ2)
+SX:C:S:L:_mul32:mulu32:i:0:(typ11)
+SX:C:S:F:_mul32:muls32:muls32:(typ1)(typ1)(typ1)
+SX:C:S:L:_mul32:muls32:a:8:(typ1)
+SX:C:S:L:_mul32:muls32:b:12:(typ1)
+SX:C:S:F:_mul32:__func__:___func__:(typ11)
+SX:C:S:L:_mul32:muls32:r:2:(typ1)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_mul32: typ16-_mul32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_mul32: typ17-_mul32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_mul32);\
+}
+SX:C:T:_mul32: typ18-_mul32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_or32$../src/libcc/common/_or32.c
+SX:C:S:F:_or32:or32:or32:(typ2)(typ2)(typ2)
+SX:C:S:L:_or32:or32:a:2:(typ2)
+SX:C:S:L:_or32:or32:b:6:(typ2)
+SX:C:S:F:_or32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_or32: typ16-_or32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_or32: typ17-_or32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_or32);\
+}
+SX:C:T:_or32: typ18-_or32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_shl32$../src/libcc/common/_shl32.c
+SX:C:S:F:_shl32:shl32:shl32:(typ2)(typ2)(typ1)
+SX:C:S:L:_shl32:shl32:a:2:(typ2)
+SX:C:S:L:_shl32:shl32:amount:6:(typ1)
+SX:C:S:F:_shl32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_shl32: typ16-_shl32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_shl32: typ17-_shl32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_shl32);\
+}
+SX:C:T:_shl32: typ18-_shl32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:_sub32$../src/libcc/common/_sub32.c
+SX:C:S:F:_sub32:sub32:sub32:(typ2)(typ1)(typ1)
+SX:C:S:L:_sub32:sub32:a:2:(typ1)
+SX:C:S:L:_sub32:sub32:b:6:(typ1)
+SX:C:S:F:_sub32:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:_sub32: typ16-_sub32 Z (4)U float_long {\
+f:(0):(typ7);\
+l:(0):(typ1);\
+}
+SX:C:T:_sub32: typ17-_sub32 Z (4)U long_int {\
+l:(0):(typ1);\
+s:(0):(typ18-_sub32);\
+}
+SX:C:T:_sub32: typ18-_sub32 Z (4)S {\
+msw:(0):(typ12);\
+lsw:(2):(typ12);\
+}
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:6:1000
+SX:A:X:_startup:7:1003
+SX:A:X:_startup:8:1006
+SX:A:X:_startup:9:1007
+SX:A:F:_startup:__start:1000:5
+SX:A:E:_startup:__start:1009:10
+SX:C:F:displayML15:_display_digits:0000100A:4
+SX:C:X:displayML15:4:1:100A
+SX:C:X:displayML15:6:31:100C
+SX:C:X:displayML15:7:34:1011
+SX:C:X:displayML15:8:31:1016
+SX:C:X:displayML15:9:6:1019
+SX:C:X:displayML15:9:13:101B
+SX:C:X:displayML15:9:20:1023
+SX:C:X:displayML15:10:39:1027
+SX:C:X:displayML15:11:31:1035
+SX:C:X:displayML15:12:31:1038
+SX:C:X:displayML15:13:1:103B
+SX:C:Z:displayML15:13:1:103B
+SX:C:E:displayML15:_display_digits:0000103E:13
+SX:C:F:displayML15:_display_dec:0000103E:15
+SX:C:X:displayML15:15:1:103E
+SX:C:X:displayML15:18:6:1040
+SX:C:X:displayML15:18:13:1044
+SX:C:X:displayML15:18:21:104A
+SX:C:X:displayML15:19:22:1059
+SX:C:X:displayML15:20:22:1070
+SX:C:X:displayML15:21:1:1078
+SX:C:Z:displayML15:21:1:1078
+SX:C:E:displayML15:_display_dec:0000107B:21
+SX:C:F:keyboardML15:_get_key:0000107B:4
+SX:C:X:keyboardML15:4:1:107B
+SX:C:X:keyboardML15:6:7:107D
+SX:C:X:keyboardML15:7:7:1086
+SX:C:X:keyboardML15:9:1:1094
+SX:C:Z:keyboardML15:9:1:1094
+SX:C:E:keyboardML15:_get_key:00001097:9
+SX:C:F:clock:_init_clock:00001097:12
+SX:C:X:clock:12:1:1097
+SX:C:X:clock:13:12:1098
+SX:C:X:clock:14:72:10A0
+SX:C:X:clock:15:42:10A8
+SX:C:X:clock:16:72:10AD
+SX:C:X:clock:17:24:10B5
+SX:C:X:clock:18:24:10BB
+SX:C:X:clock:19:11:10C1
+SX:C:X:clock:20:1:10C4
+SX:C:Z:clock:20:1:10C4
+SX:C:E:clock:_init_clock:000010C5:20
+SX:C:F:clock:_clock_inter:000010C5:22
+SX:C:X:clock:22:1:10C5
+SX:C:X:clock:23:8:10C6
+SX:C:X:clock:24:42:10D8
+SX:C:X:clock:25:1:10DD
+SX:C:Z:clock:25:1:10DD
+SX:C:E:clock:_clock_inter:000010DE:25
+SX:C:F:clock:_get_time:000010DE:27
+SX:C:X:clock:27:1:10DE
+SX:C:X:clock:29:1:10F4
+SX:C:Z:clock:29:1:10F4
+SX:C:E:clock:_get_time:000010F5:29
+SX:C:F:clock:_hold:000010F5:31
+SX:C:X:clock:31:1:10F5
+SX:C:X:clock:32:25:10F5
+SX:C:X:clock:33:7:111B
+SX:C:X:clock:34:1:1130
+SX:C:Z:clock:34:1:1130
+SX:C:E:clock:_hold:00001131:34
+SX:A:X:_clock:5:1131
+SX:A:X:_clock:6:1133
+SX:A:X:_clock:8:1134
+SX:A:X:_clock:9:1137
+SX:C:F:main:_main:00001138:6
+SX:C:X:main:6:1:1138
+SX:C:X:main:7:12:1139
+SX:C:X:main:8:7:113C
+SX:C:X:main:9:47:113C
+SX:C:X:main:11:1:1156
+SX:C:Z:main:11:1:1156
+SX:C:E:main:_main:00001157:11
+SX:C:F:_add32:add32:00001157:9
+SX:C:X:_add32:9:13:1157
+SX:C:X:_add32:120:2:1157
+SX:C:X:_add32:121:2:1159
+SX:C:X:_add32:122:2:115B
+SX:C:X:_add32:123:2:115D
+SX:C:X:_add32:124:2:115F
+SX:C:X:_add32:125:2:1161
+SX:C:X:_add32:126:2:1163
+SX:C:X:_add32:132:1:1165
+SX:C:Z:_add32:132:1:1165
+SX:C:E:_add32:add32:00001166:132
+SX:C:F:_cmp32:cmp32:00001166:12
+SX:C:X:_cmp32:12:13:1166
+SX:C:X:_cmp32:186:2:1166
+SX:C:X:_cmp32:187:2:1168
+SX:C:X:_cmp32:188:2:116A
+SX:C:X:_cmp32:189:2:116B
+SX:C:X:_cmp32:190:2:116C
+SX:C:X:_cmp32:191:2:116E
+SX:C:X:_cmp32:192:2:116F
+SX:C:X:_cmp32:193:2:1171
+SX:C:X:_cmp32:194:2:1173
+SX:C:X:_cmp32:195:2:1175
+SX:C:X:_cmp32:196:2:1177
+SX:C:X:_cmp32:197:2:1179
+SX:C:X:_cmp32:198:2:117A
+SX:C:X:_cmp32:199:2:117C
+SX:C:X:_cmp32:204:1:117E
+SX:C:Z:_cmp32:204:1:117E
+SX:C:E:_cmp32:cmp32:0000117F:204
+SX:C:F:_div32:divu32:0000117F:9
+SX:C:X:_div32:9:13:117F
+SX:C:X:_div32:12:25:1181
+SX:C:X:_div32:16:4:118B
+SX:C:X:_div32:17:8:11AC
+SX:C:X:_div32:19:8:11B3
+SX:C:X:_div32:20:9:11B7
+SX:C:X:_div32:21:12:11CE
+SX:C:X:_div32:22:4:11E5
+SX:C:X:_div32:23:13:11EC
+SX:C:X:_div32:25:4:1203
+SX:C:X:_div32:26:12:1218
+SX:C:X:_div32:27:10:122D
+SX:C:X:_div32:29:9:1244
+SX:C:X:_div32:31:1:1250
+SX:C:Z:_div32:31:1:1250
+SX:C:E:_div32:divu32:00001253:31
+SX:C:F:_div32:divs32:00001253:34
+SX:C:X:_div32:34:13:1253
+SX:C:X:_div32:38:46:1255
+SX:C:X:_div32:40:4:12BE
+SX:C:X:_div32:44:1:1319
+SX:C:Z:_div32:44:1:1319
+SX:C:E:_div32:divs32:0000131C:44
+SX:C:F:_and32:and32:0000131C:9
+SX:C:X:_and32:9:13:131C
+SX:C:X:_and32:118:2:131C
+SX:C:X:_and32:119:2:131E
+SX:C:X:_and32:120:2:1320
+SX:C:X:_and32:121:2:1322
+SX:C:X:_and32:122:2:1324
+SX:C:X:_and32:123:2:1326
+SX:C:X:_and32:124:2:1328
+SX:C:X:_and32:130:1:132A
+SX:C:Z:_and32:130:1:132A
+SX:C:E:_and32:and32:0000132B:130
+SX:C:F:_mul32:mulu32:0000132B:9
+SX:C:X:_mul32:9:13:132B
+SX:C:X:_mul32:16:9:132D
+SX:C:X:_mul32:17:11:1337
+SX:C:X:_mul32:18:7:133D
+SX:C:X:_mul32:18:14:1341
+SX:C:X:_mul32:18:20:134C
+SX:C:X:_mul32:20:4:1353
+SX:C:X:_mul32:21:31:1376
+SX:C:X:_mul32:22:11:139C
+SX:C:X:_mul32:25:1:13BB
+SX:C:Z:_mul32:25:1:13BB
+SX:C:E:_mul32:mulu32:000013BE:25
+SX:C:F:_mul32:muls32:000013BE:28
+SX:C:X:_mul32:28:13:13BE
+SX:C:X:_mul32:33:53:13C0
+SX:C:X:_mul32:35:4:1429
+SX:C:X:_mul32:39:1:1484
+SX:C:Z:_mul32:39:1:1484
+SX:C:E:_mul32:muls32:00001487:39
+SX:C:F:_or32:or32:00001487:8
+SX:C:X:_or32:8:13:1487
+SX:C:X:_or32:118:2:1487
+SX:C:X:_or32:119:2:1489
+SX:C:X:_or32:120:2:148B
+SX:C:X:_or32:121:2:148D
+SX:C:X:_or32:122:2:148F
+SX:C:X:_or32:123:2:1491
+SX:C:X:_or32:124:2:1493
+SX:C:X:_or32:130:1:1495
+SX:C:Z:_or32:130:1:1495
+SX:C:E:_or32:or32:00001496:130
+SX:C:F:_shl32:shl32:00001496:9
+SX:C:X:_shl32:9:13:1496
+SX:C:X:_shl32:184:2:1496
+SX:C:X:_shl32:185:2:1498
+SX:C:X:_shl32:186:2:149A
+SX:C:X:_shl32:187:2:149B
+SX:C:X:_shl32:188:2:149C
+SX:C:X:_shl32:189:2:149E
+SX:C:X:_shl32:190:2:14A0
+SX:C:X:_shl32:191:2:14A2
+SX:C:X:_shl32:192:2:14A2
+SX:C:X:_shl32:193:2:14A3
+SX:C:X:_shl32:194:2:14A5
+SX:C:X:_shl32:195:2:14A7
+SX:C:X:_shl32:196:2:14A9
+SX:C:X:_shl32:197:2:14AA
+SX:C:X:_shl32:198:2:14AC
+SX:C:X:_shl32:199:2:14AC
+SX:C:X:_shl32:200:2:14AD
+SX:C:X:_shl32:205:1:14AE
+SX:C:Z:_shl32:205:1:14AE
+SX:C:E:_shl32:shl32:000014AF:205
+SX:C:F:_sub32:sub32:000014AF:10
+SX:C:X:_sub32:10:13:14AF
+SX:C:X:_sub32:125:2:14AF
+SX:C:X:_sub32:126:2:14B1
+SX:C:X:_sub32:127:2:14B3
+SX:C:X:_sub32:128:2:14B5
+SX:C:X:_sub32:129:2:14B7
+SX:C:X:_sub32:130:2:14B9
+SX:C:X:_sub32:131:2:14BB
+SX:C:X:_sub32:135:1:14BD
+SX:C:Z:_sub32:135:1:14BD
+SX:C:E:_sub32:sub32:000014BE:135
+SX:C:S:G:clock:counter:_counter:000014BE:(typ2)

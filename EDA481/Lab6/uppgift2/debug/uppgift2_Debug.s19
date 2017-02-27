@@ -1,0 +1,131 @@
+S0030000FC
+S10D1000CF2FFF16100AA720FD757C
+S123100AA7161089873B16104C1B8220F43D1B9FC6017B09C2C6807B09C37909C26980E6E3
+S123102A80C10625062012628020F4E68087E383B745E6007B09C320EE7909C37909C31BD9
+S123104A813D1B98C6056B81E7812C1120266381CE000AEC8ACD0000116D8A20EBEC8ACE19
+S123106A000A18101A826B80E681B7141AE6E6806B0020DA1A82341610181B821B883D1B06
+S11F108A9FF609C06B80C18024F7F609C06B80C18025F7E68087C47F1B813D741D
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:main$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/main.c
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:displayML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c
+SX:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SX:C:S:L:displayML15:display_digits:digits:3:(typ11)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_digits:i:0:(typ4)
+SX:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SX:C:S:L:displayML15:display_dec:dec:10:(typ12)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_dec:digits:2:(typ18-displayML15)
+SX:C:S:L:displayML15:display_dec:i:1:(typ3)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:displayML15: typ16-displayML15 A (-1)(typ4)
+SX:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:keyboardML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c
+SX:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SX:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SX:C:S:L:keyboardML15:get_key:data:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:6:1000
+SX:A:X:_startup:7:1003
+SX:A:X:_startup:8:1006
+SX:A:X:_startup:9:1007
+SX:A:F:_startup:__start:1000:5
+SX:A:E:_startup:__start:1009:10
+SX:C:F:main:_main:0000100A:5
+SX:C:X:main:5:1:100A
+SX:C:X:main:6:7:100B
+SX:C:X:main:7:23:100B
+SX:C:X:main:9:1:1017
+SX:C:Z:main:9:1:1017
+SX:C:E:main:_main:00001018:9
+SX:C:F:displayML15:_display_digits:00001018:4
+SX:C:X:displayML15:4:1:1018
+SX:C:X:displayML15:6:23:101A
+SX:C:X:displayML15:7:26:101F
+SX:C:X:displayML15:8:23:1024
+SX:C:X:displayML15:9:6:1027
+SX:C:X:displayML15:9:13:1029
+SX:C:X:displayML15:9:20:1031
+SX:C:X:displayML15:10:31:1035
+SX:C:X:displayML15:11:23:1043
+SX:C:X:displayML15:12:23:1046
+SX:C:X:displayML15:13:1:1049
+SX:C:Z:displayML15:13:1:1049
+SX:C:E:displayML15:_display_digits:0000104C:13
+SX:C:F:displayML15:_display_dec:0000104C:15
+SX:C:X:displayML15:15:1:104C
+SX:C:X:displayML15:18:6:104E
+SX:C:X:displayML15:18:13:1052
+SX:C:X:displayML15:18:21:1058
+SX:C:X:displayML15:19:22:1067
+SX:C:X:displayML15:20:22:107E
+SX:C:X:displayML15:21:1:1086
+SX:C:Z:displayML15:21:1:1086
+SX:C:E:displayML15:_display_dec:00001089:21
+SX:C:F:keyboardML15:_get_key:00001089:4
+SX:C:X:keyboardML15:4:1:1089
+SX:C:X:keyboardML15:6:7:108B
+SX:C:X:keyboardML15:7:7:1094
+SX:C:X:keyboardML15:9:1:10A2
+SX:C:Z:keyboardML15:9:1:10A2
+SX:C:E:keyboardML15:_get_key:000010A5:9

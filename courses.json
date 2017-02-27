@@ -2,5 +2,61 @@
   {
     "name":  "Artificial Intelligence",
     "code": "TIN173"
+   },
+   {
+    "name":  "Physics for engineers",
+    "code": "TIF085"
+   },
+   {
+    "name":  "Distributed systems",
+    "code": "TDA596"
+   },
+   {
+    "name":  "Introduction to functional programming",
+    "code": "TDA555"
+   },
+   {
+    "name":  "Concurrent programming",
+    "code": "TDA382"
+   },
+   {
+    "name":  "Cryptography",
+    "code": "TDA352"
+   },
+   {
+    "name":  "Algorithms for machine learning and inference",
+    "code": "TDA231"
+   },
+   {
+    "name":  "Mathematical statistics and discrete mathematics",
+    "code": "MVE055"
+   },
+   {
+    "name":  "Modeling of sustainable energy systems",
+    "code": "ENM155"
+   },
+   {
+    "name":  "Embedded systems programming",
+    "code": "EDA481"
+   },
+   {
+    "name":  "Introduction to computer engineering",
+    "code": "EDA452"
+   },
+   {
+    "name":  "Computer security",
+    "code": "EDA263"
+   },
+   {
+    "name":  "Parallel functional programming",
+    "code": "DAT280"
+   },
+   {
+    "name":  "Programming language technology",
+    "code": "DAT151"
+   },
+   {
+    "name":  "Object oriented programming",
+    "code": "DAT043"
    }
 ]

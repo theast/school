@@ -1,0 +1,27 @@
+Q1. Since we have a pad block of type 0, with the form <?, ?, ?, ?, ?, ?, ?, 0> we want the last byte to be 0. A byte consists of 8 bits. Each bit can either be 1 or 0. In other words, we have 50% chance for each bit to be 0. Thus the probability of the last byte to be 0 is (1/2)^8 = 1/256 = 0.3906%
+
+Q2. As concluded in the previous task, the probability that a random block if of type 0 is 1/256. For each descendants type of pad block we add another byte that we care about. So for each byte we care about we have to multiply with a factor of 1/256. So for instance if the probability that we have a pad block of type 1 is (1/256) * (1/256) and so on. 
+
+So the probability that a random block is a valid pad block is: sum(i=1 to 8) (1/256)^i = 0.3922%
+
+Q3. So the probability that a random block is a valid pad block is 0.3922% as we concluded in the previous task. In Q1 we found out that the probability that a random block is of type 0 is 0.3906%. Therefore, the probability that a block is of type 0, given that it`s valid is: 0.3906 / 0.3922 = 0.9959 = 99.6%
+
+Q4. The message sent to the server is: (Ri + C´)||C. Then, the server decrypts the decrypts the message i.e D(C). When we encrypt with CBC we have that D(C` + P) = C. So in order to get any information about the plain-text we must find D(C) + C`. Since xor is associative we can easily find D(C) + C´ which is equal to P.   
+
+D(C) + (Ri + C´)  <=>  (D(C) + C´) + Ri  <=>  P + Ri
+
+Q5. The last byte of P must be equal to i in order for P + Ri = 0
+
+Q6. Add alot of arbitrary data infront of C´. Thus, the MAC-computation will be performed on alot more data and the computation will therefore be slower.
+
+Q7. Since we have decided b8, we know that b8 + b8 = 0. But since we want to have the padding <?, ?, ?, ?, ?, ?, 1, 1> we also have to xor b8 with b8+1 which results in 1.
+
+We know that P + Si = <?, ?, ?, ?, ?, ?, b7 + i, b8 + b8 + 1>
+
+Thus, b7 + i = 1 if the padding is valid => b7 = i + 1.
+
+Q8. We want to find b6. We want the server to see the following P + Ti = <?, ?, ?, ?, ?, b6 + i, b7 + b7 + 2, b8 + b8 +2>. This should result in the padding <?, ?, ?, ?, ?, 2, 2, 2>. In order for this to happen, we must send (Ti + C´)||C where Ti = <?, ?, ?, ?, ?, i, b7 + 2, b8 + 2>. Where i is systematically changed by the adversary.
+
+This will result in that b6 + i = 2 => b6 = i + 2.
+
+

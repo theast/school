@@ -1,0 +1,20 @@
+"lab_3-1-testA.hwflisp"
+
+#ClearAllStates
+#ClearAllMemory
+#ClearAllRegisters
+#load "basic.hwflisp"
+#load "programflow.hwflisp"
+#load "lab_3-1-ins.hwflisp"
+#SetMemory FF=20
+
+#SetMemory 20=DF
+#SetMemory 21=10
+#SetMemory 22=AA
+
+#SetMemory 23=EF
+#SetMemory 24=10
+#SetMemory 25=55
+
+#SetMemory 26=33
+#SetMemory 27=20

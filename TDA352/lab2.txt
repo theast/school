@@ -1,0 +1,104 @@
+~sydow/cryptoAss2 9311099114
+Home assignment 2, cryptography.
+Data for 9311099114.
+Your generator is g=12.
+For task 2, the receiver's public key is X=16 and the message is m=14.
+For task 3, your private key is x=7 and the ciphertext is (13,21)(2,11)(13,22).
+
+Task 1A)
+
+    i          | 0 | 1  | 2 | 3 | 4  | 5  | 6 | 7  | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
+   g^i mod 23  | 1 | 12 | 6 | 3 | 13 | 18 | 9 | 16 | 8 | 4 | 2  | 1  | 12 | 6  | 3  | 13 | 18 | 9  | 16 | 8  | 4  | 2  |
+
+Firstly, i calculated g^0 mod 23 = 12^0 mod 23 = 1.
+Thereafter, i could use the fact that g^(i+1) = g^i * g mod 23, to find the remaining powers of g.
+Worth mentioning, is that this was not done by hand, instead i wrote a small Java program that calculated this for me.
+
+public class tda352 {
+    public static void main(String[] args){
+        int g = 12;
+        LinkedList<Integer> valueList = new LinkedList<Integer>();
+        valueList.add((int) Math.pow(g, 0) % 23);
+        for (int i = 1; i < 22; i++)
+            valueList.add(valueList.get(i-1) * g % 23);
+        System.out.println(valueList.toString());
+    }
+}
+
+Task 1B)
+The set S contains the following elements: S = {1, 12, 6, 3, 13, 18, 9, 16, 8, 4, 2}
+I will now select 5 arbitrarly pairs from the set S and calculate their product. 
+
+Pair 1 (1, 12): 1 * 12 mod 23 = 12 => 12 belongs to S
+Pair 2 (12, 6): 12 * 6 mod 23 = 3 => 3 belongs to S
+Pair 3 (3, 13): 3 * 13 mod 23 = 16 => 16 belongs to S
+Pair 4 (18, 8): 18 * 8 mod 23 = 6 => 6 belongs to S
+Pair 5 (18, 16): 18 * 16 mod 23 = 12 => 12 belongs to S
+
+As we can see, the product of all these 5 pairs also belongs to S.
+
+Task 2A)
+Alice´s public key is 16.
+g^x mod 23 = 16 and as we can see in the table from Task 1A) 16 maps to the value i = 7.
+In other words, Alice´s secret key is 7.
+
+Task 2B)
+Firstly, I chose an random exponent b = 5.
+
+Then I will have to calculate my public key B.
+B = g^b mod 23 = 12^5 mod 23 = 18 
+
+Thereafter, I can compute the key K. Using Alice´s receiver key.
+K = A^b = 16^5 mod 23 = 6
+
+Lastly, I can encrypt the message m = 14.
+C = 6 * 14 mod 23 = 15
+
+The message I send to Alice is: (B, C) = (18, 15)
+
+Task 2C)
+So I just received the message: (18, 15)
+
+Firstly, I will have to find the key K. To find the key I will use Alice secret key x = 7.
+K = B^a mod 23 = 18^7 mod 23 = 6
+
+Then, I can decrypt the message using this key K.
+m = C / K = 15 * 6^-1 mod 23 = 15 * 4 mod 23 = 14
+
+The decrypted message is: 14 which is equal to what i sended.
+
+Task 3A)
+Private key x=7
+Therefore my public key is: g^7 mod 23 = 12^7 mod 23 = 16
+
+Task 3B)
+Private key x=7
+Ciphertext: (13,21)(2,11)(13,22)
+
+K = 13 ^ 7 mod 23 = 9
+m1 = C / K = 21 * 9^-1 mod 23 = 21 * 18 mod 23 = 10
+
+K = 2 ^ 7 mod 23 = 13
+m2 = C / K = 11 * 13^-1 mod 23 = 11 * 16 mod 23 = 15
+
+K = 13 ^ 7 mod 23 = 9
+m3 = C / K = 22 * 9^-1 mod 23 = 22 * 18 mod 23 = 5
+
+10 => j
+15 => o
+5 =>  e
+
+The decrypted message is: joe
+
+In order to compute the modular inverse of K in Task 2C and Task 3B i wrote a Java program:
+Where the value p, was initialized to the value i wanted to calculate the inverse modular on.
+
+public class tda352 {
+    public static void main(String[] args){
+        int z = 23;
+        for (int i = 0; i < z; i++){
+            if (p*i % z == 1)
+                System.out.println(i);
+        }
+    }
+}

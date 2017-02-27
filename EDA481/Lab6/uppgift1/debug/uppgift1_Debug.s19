@@ -1,0 +1,41 @@
+S0030000FC
+S10D1000CF2FFF16100AA720FD00F1
+S10B100AA7F606007B04003D7B
+S9031000EC
+SX:C:s:__start
+SX:C:M:main$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift1/src/c/main.c
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:M:_startup$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/src/asm/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:6:1000
+SX:A:X:_startup:7:1003
+SX:A:X:_startup:8:1006
+SX:A:X:_startup:9:1007
+SX:A:F:_startup:__start:1000:5
+SX:A:E:_startup:__start:1009:10
+SX:C:F:main:_main:0000100A:3
+SX:C:X:main:3:1:100A
+SX:C:X:main:4:42:100B
+SX:C:X:main:5:1:1011
+SX:C:Z:main:5:1:1011
+SX:C:E:main:_main:00001012:5

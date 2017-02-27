@@ -1,0 +1,8 @@
+;
+;	Moment1.sflisp
+;
+	ORG 	$20
+start:	LDA 	$FC
+	COMA
+	STA	$FB
+	JMP	start

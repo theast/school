@@ -1,0 +1,120 @@
+QLD (Version 4.8.0)- Link/Load Summary: 'debug\uppgift3_Debug.s19'
+SCRIPT FILES FROM THE FOLLOWING PATH(S):
+  'C:/Program Files (x86)/GMV/EducDist/config/xcc12'
+
+SCRIPT READ FROM THE FOLLOWING FILE(S):
+  'default.lsc'
+
+---------------------------
+ SEARCHED LIBRARIES:
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libccd.e12'
+
+---------------------------
+ PROGRAM ENTRY:'__start'
+---------------------------
+ GROUPS AND SEGMENTS:
+
+  GROUP 'test_group', READ/WRITE ,allocation to: 00001000 - 000014C1, (size: 1218 Bytes)
+   00001000 00001009 'init'
+   0000100A 000014BD 'text'
+   000014BE 000014C1 'bss'
+
+  GROUP 'interrupt_vectors', READ/WRITE
+   NO SEGMENTS
+
+  GROUP 'const_group',
+   NO SEGMENTS
+---------------------------
+LINKER DEFINED CONSTANTS:
+   __rom_code_enabled = 0
+   __heap_start = 000014C2
+  from segment 'text'
+   0000100A '__text__start'
+   000014BE '__text__end'
+   000004B4 '__text__size'
+  from segment 'init'
+   00001000 '__init__start'
+   0000100A '__init__end'
+   0000000A '__init__size'
+  from segment 'bss'
+   000014BE '__bss__start'
+   000014C2 '__bss__end'
+   00000004 '__bss__size'
+  from segment 'data'
+   00000000 '__data__start'
+   00000000 '__data__end'
+   00000000 '__data__size'
+  from segment 'rodata'
+   00000000 '__rodata__start'
+   00000000 '__rodata__end'
+   00000000 '__rodata__size'
+---------------------------
+GLOBAL SYMBOL(S):
+
+ in module: '_startup' of type 'O12' defined in file '_startup.o12'
+  in segment: 'init'
+   00001006 '_exit'
+   00001000 '__start'
+
+ in module: 'displayML15' of type 'O12' defined in file 'displayML15.o12'
+  in segment: 'text'
+   0000100A '_display_digits'
+   0000103E '_display_dec'
+
+ in module: 'keyboardML15' of type 'O12' defined in file 'keyboardML15.o12'
+  in segment: 'text'
+   0000107B '_get_key'
+
+ in module: 'clock' of type 'O12' defined in file 'clock.o12'
+  in segment: 'text'
+   000010F5 '_hold'
+   00001097 '_init_clock'
+   000010DE '_get_time'
+   000010C5 '_clock_inter'
+  in segment: 'bss'
+   000014BE '_counter'
+
+ in module: '_clock' of type 'O12' defined in file '_clock.o12'
+  in segment: 'text'
+   00001131 '__init_irq'
+   00001134 '_irq'
+
+ in module: 'main' of type 'O12' defined in file 'main.o12'
+  in segment: 'text'
+   00001138 '_main'
+
+ in module: '_add32' of type 'O12' defined in file '_add32.o12'
+  in segment: 'text'
+   00001157 'add32'
+
+ in module: '_cmp32' of type 'O12' defined in file '_cmp32.o12'
+  in segment: 'text'
+   00001166 'cmp32'
+
+ in module: '_div32' of type 'O12' defined in file '_div32.o12'
+  in segment: 'text'
+   00001253 'divs32'
+   0000117F 'divu32'
+
+ in module: '_and32' of type 'O12' defined in file '_and32.o12'
+  in segment: 'text'
+   0000131C 'and32'
+
+ in module: '_mul32' of type 'O12' defined in file '_mul32.o12'
+  in segment: 'text'
+   000013BE 'muls32'
+   0000132B 'mulu32'
+
+ in module: '_or32' of type 'O12' defined in file '_or32.o12'
+  in segment: 'text'
+   00001487 'or32'
+
+ in module: '_shl32' of type 'O12' defined in file '_shl32.o12'
+  in segment: 'text'
+   00001496 'shl32'
+
+ in module: '_sub32' of type 'O12' defined in file '_sub32.o12'
+  in segment: 'text'
+   000014AF 'sub32'
+---
+ End of listfile

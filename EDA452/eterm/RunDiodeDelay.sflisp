@@ -1,0 +1,26 @@
+;
+;	RunDiodeDelay.sflisp
+;
+LED		EQU	$FB
+START		EQU	$20
+
+		ORG	START
+RunDiodeDelay:	LDSP	#$10
+		ANDCC	#$FE
+		LDA	#$01
+RunDiodeDelay_1:STA	LED
+		ROLA
+		JSR	Delay
+		JMP	RunDiodeDelay_1
+		
+Delay:		PSHA
+		PSHC
+		LDA	#$25
+Delay_1:	DECA
+		BNE	Delay_1
+		PULC
+		PULA
+		RTS
+
+		ORG	$FF
+		FCB	START

@@ -1,0 +1,28 @@
+"programflow.hwflisp"
+
+------------------------
+JMP
+------------------------
+#MergeState MR=     (Q4*I33)
+#MergeState LDPC=   (Q4*I33)
+
+#MergeState NF=     (Q5*I33)
+------------------------
+BRA
+------------------------
+#MergeState OEPC=   (Q4*I21)
+#MergeState LDT=    (Q4*I21)
+#MergeState LDTA=   (Q4*I21)
+
+#MergeState G14=    (Q5*I21)
+#MergeState MR=     (Q5*I21)
+#MergeState F3=     (Q5*I21)
+#MergeState F1=     (Q5*I21)
+#MergeState F0=     (Q5*I21)
+#MergeState G0=     (Q5*I21)
+#MergeState LDR=    (Q5*I21)
+
+#MergeState OER=    (Q6*I21)
+#MergeState LDPC=   (Q6*I21)
+
+#MergeState NF=     (Q7*I21)

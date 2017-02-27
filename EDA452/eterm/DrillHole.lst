@@ -1,0 +1,47 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+
+
+File: DrillHole.lst
+                        1. ;
+                        2. ;	DrillHole.sflisp
+                        3. ;
+FC                      4. DRILL_CONTROL	EQU	$FC
+FB                      5. DRILL_STATUS	EQU	$FB
+FC                      6. DIPSWITCH	EQU	$FC
+01                      7. DRILL_GO	EQU	%00000001
+20                      8. START		EQU	$20
+                        9. 
+20                     10. 		ORG	START
+20 92 20               11. DrillHole:	LDSP 	#$20	
+22 05                  12. 		CLRA
+23 E1 FC               13. 		STA	DRILL_CONTROL
+25 F1 FC               14. DrillHole_1:	LDA	DIPSWITCH
+27 99 01               15. 		ANDA	#DRILL_GO
+29 24 FA               16. 		BEQ	DrillHole_1
+2B F0 04               17. 		LDA	#$04
+2D E1 FC               18. 		STA	DRILL_CONTROL
+2F 34 46               19. 		JSR	Delay
+31 F0 0C               20. 		LDA	#$0C
+33 E1 FC               21. 		STA	DRILL_CONTROL
+35 F1 FB               22. DrillHole_2:	LDA	DRILL_STATUS
+37 99 04               23. 		ANDA	#$04
+39 24 FA               24. 		BEQ	DrillHole_2
+3B 05                  25. 		CLRA
+3C E1 FC               26. 		STA	DRILL_CONTROL
+3E F1 FC               27. DrillHole_3:	LDA	DIPSWITCH
+40 99 01               28. 		ANDA	#DRILL_GO
+42 25 FA               29. 		BNE	DrillHole_3
+44 33 25               30. 		JMP	DrillHole_1
+46                     31. 		
+46 10                  32. Delay:		PSHA
+47 13                  33. 		PSHC
+48 F0 01               34. 		LDA	#$01
+4A 08                  35. Delay_1:	DECA
+4B 25 FD               36. 		BNE	Delay_1
+4D 17                  37. 		PULC
+4E 14                  38. 		PULA
+4F 43                  39. 		RTS
+50                     40. 		
+FF                     41. 		ORG	$FF
+FF 20                  42. 		FCB	START

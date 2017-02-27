@@ -1,0 +1,30 @@
+QAflisp - FLISP Absolute crossassembler, Version RC:3
+(c) GMV 1989-2012
+File: RunDiodeDelay.hwflisp
+
+ # ClearAllMemory
+ # ClearAllRegisters
+ #setMemory  20=92
+ #setMemory  21=10
+ #setMemory  22=01
+ #setMemory  23=FE
+ #setMemory  24=F0
+ #setMemory  25=01
+ #setMemory  26=E1
+ #setMemory  27=FB
+ #setMemory  28=0D
+ #setMemory  29=34
+ #setMemory  2A=2D
+ #setMemory  2B=33
+ #setMemory  2C=26
+ #setMemory  2D=10
+ #setMemory  2E=13
+ #setMemory  2F=F0
+ #setMemory  30=25
+ #setMemory  31=08
+ #setMemory  32=25
+ #setMemory  33=FD
+ #setMemory  34=17
+ #setMemory  35=14
+ #setMemory  36=43
+ #setMemory  FF=20

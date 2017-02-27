@@ -1,0 +1,14 @@
+;
+;	RunDiode.sflisp
+;
+LED		EQU	$FB
+
+		ORG	$20
+RunDiode:	ANDCC	#$FE
+		LDA	#$01
+RunDiode_1:	STA	LED
+		ROLA
+		JMP	RunDiode_1
+		
+		ORG	$FF
+		FCB	$20

@@ -1,0 +1,347 @@
+# ------------------------------------------------------------------------------
+# Start listening and handle incoming connections in board() function
+# ------------------------------------------------------------------------------
+def start_board():
+  ip = mycontext['ip']
+  port = mycontext['port']
+  print 'Listening on IP ' + str(ip) +' port ' + str(port)
+  try:
+    listencommhandle = waitforconn(ip, port, board_connection_handler)
+  except Exception, e:
+    print 'Exception in start_board: %s, %s\n' %(type(e), e)
+    raise
+
+# ------------------------------------------------------------------------------
+# Called when an incoming message is received.
+# --> Important starting point
+# ------------------------------------------------------------------------------
+def board_connection_handler(ip, port, sockobj, thiscommhandle, listencommhandle):
+  try:
+    msgheader = sockobj.recv(1024) # Receive message
+    # React depending on message type: HTTP GET or POST, or some other type of communication.
+    if msgheader.startswith( 'GET' ):
+      get_board_handler(msgheader, sockobj, thiscommhandle)
+    elif msgheader.startswith('POST'):
+      post_handler(msgheader, sockobj, thiscommhandle)
+    elif msgheader.startswith('VOTE'):
+      _op, selection, ip = msgheader.split(':')
+      vote(selection, ip)
+    elif msgheader.startswith('RESULT'):
+      _op, result = msgheader.split(':')
+      arr_res = make_arr(result)
+      outcome(arr_res)
+  except Exception, e:
+    print 'Exception in board: %s, %s\n' %(type(e), e)
+    stopcomm(thiscommhandle)
+
+# ------------------------------------------------------------------------------
+# Creates an array from the string version of the array
+# Argument: String version of Array
+# ------------------------------------------------------------------------------
+def make_arr(inp):
+  i1 = inp.strip("[]")
+  i2 = i1.replace("\'", "")
+  i3 = i2.replace(" ", "")
+  arr = i3.split(",")
+  return arr
+
+# ------------------------------------------------------------------------------
+# Checks if all results have been received then calls majority_decision
+# Argument: A vector of votes
+# ------------------------------------------------------------------------------
+def outcome(result):
+  mycontext['result_matrix'].append(result)
+
+  if (len(mycontext['result_matrix']) == mycontext['numVessels']):
+    majority_decision(mycontext['result_matrix'])
+
+# ------------------------------------------------------------------------------
+# Computes the result from the result matrix.
+# Argument: Result matrix
+# ------------------------------------------------------------------------------
+def majority_decision(arr):
+
+  # 2d-array to 1d-array
+  for i in range(mycontext['numVessels']):
+    no_attack = 0
+    no_retreat = 0
+    for j in range(mycontext['numVessels']):
+      if mycontext['result_matrix'][j][i] == "attack":
+        no_attack += 1
+      else:
+        no_retreat += 1
+    if no_attack == no_retreat:
+      mycontext['result_vector'].append("unknown")
+    elif no_attack > no_retreat:
+      mycontext['result_vector'].append("attack")
+    else:
+      mycontext['result_vector'].append("retreat")
+
+  # find most common element in 1d array
+  no_attack = 0
+  no_retreat = 0
+  for i in range(mycontext['numVessels']):
+    if mycontext['result_vector'][i] == "attack":
+      no_attack += 1
+    elif mycontext['result_vector'][i] == "retreat":
+      no_retreat += 1
+
+  if no_attack == no_retreat:
+    mycontext['result'] = "Unknown"
+  elif no_attack > no_retreat:
+    mycontext['result'] = "Attack"
+  else:
+    mycontext['result'] = "Retreat"
+
+# ------------------------------------------------------------------------------
+# Responds to the browser
+# ------------------------------------------------------------------------------
+def response_handler(sockobj, thiscommhandle, msgheader):
+  if mycontext['is_successful']:
+    res = make_text_response('green', '200 OK \n', msgheader)
+  else:
+    res = make_text_response('red', '404 Not Found \n', msgheader)
+  sockobj.send(res)
+  stopcomm(thiscommhandle)
+
+# ------------------------------------------------------------------------------
+# Handles initial GET request from browser, outputs HTML string and closes socket.
+# ------------------------------------------------------------------------------
+def get_board_handler(msgheader, sockobj,thiscommhandle):
+  htmlresponse = generate_html_page()
+  res=make_http_response(200, 'OK', htmlresponse)
+  try:
+    sockobj.send(res)
+    stopcomm(thiscommhandle)
+  except Exception, e:
+    print 'Could not get board: %s, %s\n' %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Handles POST request from browser, outputs HTML string and closes socket.
+# ------------------------------------------------------------------------------
+def post_handler(msgheader, sockobj, thiscommhandle):
+  action = extract_action(msgheader)
+
+  if action == "byzantine":
+    init_byzantine()
+  elif action == "clear":
+    mycontext['votes'] = {}
+    mycontext['result_matrix'] = []
+    mycontext['result_vector'] = []
+    mycontext['result'] = "Voting Results ..."
+  else:
+    mycontext['role'] = "honest"
+    msg = "VOTE:%s:%s" % (action, mycontext['ip'])
+    vote(action, mycontext['ip'])
+
+  mycontext['is_successful'] = True
+  response_handler(sockobj, thiscommhandle, msgheader)
+
+  if not mycontext['role'] == 'byzantine':
+    send_to_all(msg)
+
+# ------------------------------------------------------------------------------
+# Initializes the byzantine nodes, reads a file containing ip of all byzantine
+# nodes.
+# ------------------------------------------------------------------------------
+def init_byzantine():
+  mycontext['role'] = "byzantine"
+  try:
+    vesselsFile = open('byzantinelist.txt', 'r')
+    mycontext['byzantine'] = []
+    for vessel in vesselsFile.readlines():
+      mycontext['byzantine'].append(vessel.strip())
+  except Exception, e:
+    print 'Exception in file: %s, %s\n' %(type(e), e)
+
+  mycontext['numByzantine'] = len(mycontext['byzantine'])
+  mycontext['loyalVessels'] = [x for x in mycontext['vessels'] if x not in mycontext['byzantine']]
+  vote("", mycontext['ip'])
+
+# ------------------------------------------------------------------------------
+# Called upon receiving a vote, checks if the node have received all votes and
+# send the votes to all nodes in round 2.
+# Argument: the vote in form of a string "attack" or "retreat", ip
+# ------------------------------------------------------------------------------
+def vote(vote, ip):
+  mycontext['votes'][ip] = vote
+
+  if mycontext['role'] == "byzantine":
+    numLoyal = mycontext['numVessels']-mycontext['numByzantine']
+    if len(mycontext['votes']) == numLoyal:
+        result_vote = compute_byzantine_vote_round1(mycontext['numVessels'])
+        result_vote = ["VOTE:%s:%s" % (x, mycontext['ip']) for x in result_vote]
+        byzantine_to_all(result_vote)
+
+  if len(mycontext['votes']) == len(mycontext['vessels']):
+    print "Received all votes: " + str(mycontext['votes'])
+
+    votes = []
+    for vessel in mycontext['vessels']:
+      vessel_ip, vessel_port = vessel.split(":")
+      votes.append(mycontext['votes'][vessel_ip])
+
+    if mycontext['role'] == "honest":
+      result_vote = "RESULT:%s" % str(votes)
+      send_to_all(result_vote)
+
+    if mycontext['role'] == "byzantine":
+      round2 = compute_byzantine_vote_round2(mycontext['numVessels'])
+      result_vote = ["RESULT:%s" % str(x) for x in round2]
+      byzantine_to_all(result_vote)
+
+    outcome(votes)
+
+
+# ------------------------------------------------------------------------------
+# Creates a response
+# ------------------------------------------------------------------------------
+def make_text_response(color, status_text, msgheader):
+  htmlresponse = mycontext['status_template'] % (color, status_text + msgheader)
+  res = make_http_response(int(status_text.split()[0]), status_text.split()[1], htmlresponse)
+  return res
+
+# ------------------------------------------------------------------------------
+# Wrap into HTTP headers
+# ------------------------------------------------------------------------------
+def make_http_response(status, status_text, htmlresponse):
+    response_template = 'HTTP/1.1 %d %s\r\nContent-type: text/html\r\nContent-length: %i\r\n\r\n%s'
+    return response_template % (status, status_text, len(htmlresponse), htmlresponse)
+
+# ------------------------------------------------------------------------------
+# Computes byzantine votes for round 1
+# Argument: Number of nodes
+# ------------------------------------------------------------------------------
+def compute_byzantine_vote_round1(no_total):
+  result_vote = []
+  for i in range(0,no_total-1):
+    if i%2==0:
+      result_vote.append("attack")
+    else:
+      result_vote.append("retreat")
+  return result_vote
+
+# ------------------------------------------------------------------------------
+# Computes byzantine votes for round 2
+# Argument: Number of nodes
+# ------------------------------------------------------------------------------
+def compute_byzantine_vote_round2(no_total):
+  result_vectors=[]
+  for i in range(0,no_total-1):
+    if i % 2 == 0:
+      result_vectors.append(["attack"]*no_total)
+    else:
+      result_vectors.append(["retreat"]*no_total)
+  return result_vectors
+
+
+# ------------------------------------------------------------------------------
+# Utility function to extract action from HTML query
+# ------------------------------------------------------------------------------
+def extract_action(msg):
+  try:
+    parameters = msg.split(" ")[1][6:]
+    return parameters
+  except Exception, e:
+    print 'Exception in extract_action: %s, %s\n' %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Sends message to all connected vessels
+# Argument: Message to be sent
+# ------------------------------------------------------------------------------
+def send_to_all(msg):
+  for vessel in mycontext['vessels']:
+    ip, port = vessel.split(':')
+    try:
+      # Send to all vessels except yourself
+      if ip != mycontext['ip']:
+        print mycontext['ip'] + "->" + vessel + ": " + msg
+        send_message(ip, port, msg)
+    except Exception, e:
+      print 'Exception in send_to_all: %s, %s\n' %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Sends message to all connected vessels
+# Argument: Message to be sent
+# ------------------------------------------------------------------------------
+def byzantine_to_all(msgs):
+  for i in range(0, len(mycontext['loyalVessels'])):
+    vessel = mycontext['loyalVessels'][i]
+    msg = msgs[i]
+    ip, port = vessel.split(':')
+    try:
+      # Send to all vessels except yourself
+      if ip != mycontext['ip']:
+        print mycontext['ip'] + "->" + vessel + ": " + msg
+        send_message(ip, port, msg)
+    except Exception, e:
+      print 'Exception in send_to_loyal: %s, %s\n' %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Sends a message to a certain node
+# Arguments: Ip and port of receiving node, message content
+# ------------------------------------------------------------------------------
+def send_message(ip, port, msg):
+  try:
+    nodeComm = openconn(ip, int(port))
+    nodeComm.send(msg)
+    nodeComm.close()
+  except Exception, e:
+    print 'Message delivery failed: %s, %s\n' %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Outputs the blackboard html
+# ------------------------------------------------------------------------------
+def generate_html_page():
+  result = mycontext['vote_result_template'] % mycontext['result']
+  return mycontext['vote_frontpage_template'] % (mycontext['ip'], mycontext['role'], result, mycontext['result_vector'])
+
+# ------------------------------------------------------------------------------
+# Main entry point of the program. Initalizes global variables in mycontext
+# and calls start_board() which opens a socket for incoming connections.
+# ------------------------------------------------------------------------------
+if callfunc == 'initialize':
+  # whenever this vessel gets a connection on its IP:port it'll call function board_connection_handler
+  if len(callargs) == 1 or len(callargs) == 2:
+    port = int(callargs[0])
+    if len(callargs) == 2:
+      ip=str(callargs[1])
+    else:
+      try:
+        ip = getmyip()
+      except Exception, e:
+        print 'Could not get an IP\n'
+        print (type(e), e)
+        raise
+
+  # Fail if we don't have 1 or 2 arguments
+  else:
+    raise Exception('Usage: python <path to repy.py> <path to restrictions.default> skeleton2016.repy <port> [ip (optional)]')
+
+  #Initialize Port and IP
+  mycontext['port'] = port
+  mycontext['ip'] = ip
+
+  #read html template files
+  mycontext['vote_frontpage_template'] = file('vote_frontpage_template.html').read()
+  mycontext['vote_result_template'] = file('vote_result_template.html').read()
+  mycontext['status_template'] = file('status_template.html').read()
+
+  mycontext['is_successful'] = False
+  mycontext['role'] = ""
+  mycontext['votes'] = {}
+  mycontext['result_matrix'] = []
+  mycontext['result_vector'] = []
+  mycontext['result'] = "Voting Results ..."
+
+  # Initialize array of all connected vessels, read from neighborlist.txt
+  try:
+    vesselsFile = open('neighborlist.txt', 'r')
+    mycontext['vessels'] = []
+    for vessel in vesselsFile.readlines():
+      mycontext['vessels'].append(vessel.strip())
+  except Exception, e:
+    print 'Exception in file: %s, %s\n' %(type(e), e)
+
+  mycontext['numVessels'] = len(mycontext['vessels'])
+  start_board()

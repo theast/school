@@ -1,0 +1,23 @@
+class RW {
+	int nr = 0, int nw = 0;
+
+	public void start_read () {
+	atomic (nw == 0) {
+	nr++;
+	}
+	}
+
+	public void end_read {
+	atomic { nr--; }
+	}
+
+	public void start_write () {
+	atomic (nw == 0 && nr == 0) {
+	nw++;
+	}
+	}
+
+	public void end_write() {
+	atomic {nw--;}
+	}
+}

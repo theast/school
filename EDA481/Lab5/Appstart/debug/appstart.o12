@@ -1,0 +1,18 @@
+mod:appstart:O12:appstart.o12
+seg:text:0
+seg:init:9
+C:init	CF2FFF160000A720FD
+RG:init:appstart:00000004:O:W:_main:7
+G:init:appstart:00000006:_exit
+G:init:appstart:00000000:__start
+SY:A:M:appstart$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/asm/appstart.s12
+SY:A:X:appstart:6:init:0
+SY:A:X:appstart:7:init:3
+SY:A:X:appstart:8:init:6
+SY:A:X:appstart:9:init:7
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+SY:A:F:appstart:init:__start:00000000:5
+SY:A:E:appstart:init:__start:9:10
+e

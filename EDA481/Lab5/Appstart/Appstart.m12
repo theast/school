@@ -1,0 +1,210 @@
+# V 2.1 (8 February, 2013)
+# Created by Xcc-project manager 
+# DO NOT EDIT
+#
+#-----------------------------------------------
+#SETTINGS SECTION
+##CSIMSET=".\ml4-simple.hc12sim"
+##EXTMAKEFILE=""
+##EXTMAKEFILEPARAM=""
+#+[BackCol(0)]=
+#+16776960
+#+[TextCol(0)]=
+#+0
+#+[NewLine(0)]=
+#+2
+#+[LineFeed(0)]=
+#+2
+#+[LoadCom(0)]=
+#+l\n
+#+[Baud(0)(0)]=
+#+9600
+#+[Dtr(0)(0)]=
+#+0
+#+[Rts(0)(0)]=
+#+0
+#+[Cts(0)(0)]=
+#+0
+#+[Dsr(0)(0)]=
+#+0
+#+[ByteS(0)(0)]=
+#+8
+#+[Parity(0)(0)]=
+#+0
+#+[StopB(0)(0)]=
+#+0
+#+[EXonO(0)(0)]=
+#+0
+#+[EXonI(0)(0)]=
+#+0
+#-----------------------------------------------
+##TYPE E
+##USESTARTUP=0
+##OTYPE=1
+#-----------------------------------------------
+#OPEN FILE SECTION
+#-----------------------------------------------
+#PROJECT FILES SECTION
+
+FILES= \
+	".\src\asm\appstart.s12" "" "1"  \
+	".\src\c\ml4.c" "" "1" 
+#-----------------------------------------------
+#PROJECT OPTIONS SECTION
+
+!IFCONF	Debug
+##TARGETNAME="Appstart_Debug"
+##OBJDIR="debug"
+##TARGDIR="debug"
+##STDINCPATH=0
+##STDLIBPATH=0
+ASFLAGS=-g -e
+CCFLAGS=-g -w4 -O
+LNFLAGS=-g -i default.lsc
+#-----------------------------------------------
+#OBJECT FILES SECTION
+
+OBJ= \
+	"debug\appstart.o12" \
+	"debug\ml4.o12"
+#-----------------------------------------------
+#DEFINES/UNDEFINES SECTION
+
+ASMDEFINES= \
+	_DEBUG
+
+DEFINES= \
+	_DEBUG
+
+UNDEFINES=
+#-----------------------------------------------
+#INCLUDES AND LIBRARIES SECTION
+#
+
+INCLUDES=
+
+LIBRARIES=
+
+LIBRARYPATHS=
+#-----------------------------------------------
+#MACROS for MAKE
+
+INC=
+
+ASMDEF= \
+ -D_DEBUG
+
+DEF= \
+ -D_DEBUG
+
+UNDEF=
+
+LIB=
+
+LIBPATH=
+#-----------------------------------------------
+#RULES SECTION CONFIGURATION 
+
+# Application
+"debug\Appstart_Debug.s19": $(OBJ)
+	LINK -o"debug\Appstart_Debug.s19" $(LNFLAGS)  $(LIBPATH) $(LIB) -l"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12\libccd.e12"  $(OBJ)
+#-----------------------------------------------
+
+
+# Clean
+clean:
+	RMFI "debug\Appstart_Debug.s19"
+	RMFI "debug\appstart.o12"
+	RMFI "debug\ml4.o12"
+#-----------------------------------------------
+
+
+# Dependencies and their build rules
+
+"debug\appstart.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/asm/appstart.s12"
+	ASSM  $(ASFLAGS) $(ASMDEF) -o"debug\appstart.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/asm/appstart.s12"
+"debug\ml4.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/c/ml4.c"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  $(INC) -o"debug\ml4.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/c/ml4.c"
+!EICONF	Debug
+
+!IFCONF	Final
+##TARGETNAME="Appstart_Final"
+##OBJDIR="final"
+##TARGDIR="final"
+##STDINCPATH=1
+##STDLIBPATH=1
+ASFLAGS=-e
+CCFLAGS=-w4 -O
+LNFLAGS=-i default.lsc
+#-----------------------------------------------
+#OBJECT FILES SECTION
+
+OBJ= \
+	"final\appstart.o12" \
+	"final\ml4.o12"
+#-----------------------------------------------
+#DEFINES/UNDEFINES SECTION
+
+ASMDEFINES=
+
+DEFINES=
+
+UNDEFINES=
+#-----------------------------------------------
+#INCLUDES AND LIBRARIES SECTION
+#
+
+INCLUDES=
+
+LIBRARIES= \
+	"libc.e12" \
+	"libe.e12" \
+	"librtk.e12"
+
+LIBRARYPATHS=
+#-----------------------------------------------
+#MACROS for MAKE
+
+INC=
+
+ASMDEF=
+
+DEF=
+
+UNDEF=
+
+LIB= \
+	-l"libc.e12" \
+	-l"libe.e12" \
+	-l"librtk.e12"
+
+LIBPATH=
+#-----------------------------------------------
+#RULES SECTION CONFIGURATION 
+
+# Application
+"final\Appstart_Final.s19": $(OBJ)
+	LINK -o"final\Appstart_Final.s19" $(LNFLAGS)  $(LIBPATH) $(LIB) -L"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12" -l"C:\Program Files (x86)\GMV\EducDist\bin\..\lib\xcc12\libcc.e12"  $(OBJ)
+#-----------------------------------------------
+
+
+# Clean
+clean:
+	RMFI "final\Appstart_Final.s19"
+	RMFI "final\appstart.o12"
+	RMFI "final\ml4.o12"
+#-----------------------------------------------
+
+
+# Dependencies and their build rules
+
+"final\appstart.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/asm/appstart.s12"
+	ASSM  $(ASFLAGS) $(ASMDEF) -o"final\appstart.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/asm/appstart.s12"
+"final\ml4.o12":	\
+	"C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/c/ml4.c"
+	COMP  $(CCFLAGS) $(DEF) $(UNDEF)  \
+	-I"C:\Program Files (x86)\GMV\EducDist\bin\..\include" $(INC) -o"final\ml4.o12" "C:/Users/david_000/Dropbox/Chalmers/EDA481/Lab5/Appstart/src/c/ml4.c"
+!EICONF	Final

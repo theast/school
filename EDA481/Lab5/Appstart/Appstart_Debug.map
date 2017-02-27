@@ -1,0 +1,62 @@
+QLD (Version 4.8.0)- Link/Load Summary: 'debug\Appstart_Debug.s19'
+SCRIPT FILES FROM THE FOLLOWING PATH(S):
+  'C:/Program Files (x86)/GMV/EducDist/config/xcc12'
+
+SCRIPT READ FROM THE FOLLOWING FILE(S):
+  'default.lsc'
+
+---------------------------
+ SEARCHED LIBRARIES:
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libccd.e12'
+
+---------------------------
+ PROGRAM ENTRY:'__start'
+---------------------------
+ GROUPS AND SEGMENTS:
+
+  GROUP 'test_group', READ/WRITE ,allocation to: 00001000 - 0000101F, (size: 32 Bytes)
+   00001000 00001009 'init'
+   0000100A 0000101F 'text'
+
+  GROUP 'interrupt_vectors', READ/WRITE
+   NO SEGMENTS
+
+  GROUP 'const_group',
+   NO SEGMENTS
+---------------------------
+LINKER DEFINED CONSTANTS:
+   __rom_code_enabled = 0
+   __heap_start = 00000000
+  from segment 'text'
+   0000100A '__text__start'
+   00001020 '__text__end'
+   00000016 '__text__size'
+  from segment 'init'
+   00001000 '__init__start'
+   0000100A '__init__end'
+   0000000A '__init__size'
+  from segment 'bss'
+   00000000 '__bss__start'
+   00000000 '__bss__end'
+   00000000 '__bss__size'
+  from segment 'data'
+   00000000 '__data__start'
+   00000000 '__data__end'
+   00000000 '__data__size'
+  from segment 'rodata'
+   00000000 '__rodata__start'
+   00000000 '__rodata__end'
+   00000000 '__rodata__size'
+---------------------------
+GLOBAL SYMBOL(S):
+
+ in module: 'appstart' of type 'O12' defined in file 'appstart.o12'
+  in segment: 'init'
+   00001006 '_exit'
+   00001000 '__start'
+
+ in module: 'ml4' of type 'O12' defined in file 'ml4.o12'
+  in segment: 'text'
+   0000100A '_main'
+---
+ End of listfile

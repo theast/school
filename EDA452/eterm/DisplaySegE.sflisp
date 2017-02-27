@@ -1,0 +1,34 @@
+;
+;	DisplaySeg3.sflisp
+;
+DIPSWITCH	EQU	$FC
+SEGMENT7	EQU	$FB
+SEG_E		EQU	$5D
+SEG_0		EQU	$77
+SEG_1		EQU	$22
+SEG_2		EQU	$5B
+SEG_3		EQU	$6B
+SEG_4		EQU	$2E
+SEG_5		EQU	$6D
+SEG_6		EQU	$7D
+SEG_7		EQU	$23
+SEG_8		EQU	$7F
+SEG_9		EQU	$2F
+START		EQU	$20
+
+		ORG	START
+		LDX	#Segmentkod
+DisplaySegE:	LDA	DIPSWITCH
+		CMPA	#$0A
+		BCS	DisplaySegE_2
+DisplaySegE_1:	LDA	#SEG_E
+		BRA	DisplaySegE_3
+DisplaySegE_2:	LDA	A,X
+DisplaySegE_3:	STA	SEGMENT7
+		JMP	DisplaySegE
+		
+		ORG	$70
+Segmentkod:	FCB	SEG_0,SEG_1,SEG_2,SEG_3,SEG_4,SEG_5,SEG_6,SEG_7,SEG_8,SEG_9
+
+		ORG	$FF
+		FCB	START

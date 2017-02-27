@@ -1,0 +1,137 @@
+QLD (Version 4.8.0)- Link/Load Summary: 'debug\uppgift4_Debug.s19'
+SCRIPT FILES FROM THE FOLLOWING PATH(S):
+  'C:/Program Files (x86)/GMV/EducDist/config/xcc12'
+
+SCRIPT READ FROM THE FOLLOWING FILE(S):
+  'default.lsc'
+
+---------------------------
+ SEARCHED LIBRARIES:
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libccd.e12'
+
+---------------------------
+ PROGRAM ENTRY:'__start'
+---------------------------
+ GROUPS AND SEGMENTS:
+
+  GROUP 'test_group', READ/WRITE ,allocation to: 00001000 - 0000174F, (size: 1872 Bytes)
+   00001000 00001009 'init'
+   0000100A 00001733 'text'
+   00001734 00001749 'rodata'
+   0000174A 0000174F 'bss'
+
+  GROUP 'interrupt_vectors', READ/WRITE
+   NO SEGMENTS
+
+  GROUP 'const_group',
+   NO SEGMENTS
+---------------------------
+LINKER DEFINED CONSTANTS:
+   __rom_code_enabled = 0
+   __heap_start = 00001750
+  from segment 'text'
+   0000100A '__text__start'
+   00001734 '__text__end'
+   0000072A '__text__size'
+  from segment 'init'
+   00001000 '__init__start'
+   0000100A '__init__end'
+   0000000A '__init__size'
+  from segment 'bss'
+   0000174A '__bss__start'
+   00001750 '__bss__end'
+   00000006 '__bss__size'
+  from segment 'data'
+   00000000 '__data__start'
+   00000000 '__data__end'
+   00000000 '__data__size'
+  from segment 'rodata'
+   00001734 '__rodata__start'
+   0000174A '__rodata__end'
+   00000016 '__rodata__size'
+---------------------------
+GLOBAL SYMBOL(S):
+
+ in module: '_startup' of type 'O12' defined in file '_startup.o12'
+  in segment: 'init'
+   00001006 '_exit'
+   00001000 '__start'
+
+ in module: 'main' of type 'O12' defined in file 'main.o12'
+  in segment: 'text'
+   0000100A '_main'
+  in segment: 'rodata'
+   00001734 '_pattern'
+
+ in module: 'drill' of type 'O12' defined in file 'drill.o12'
+  in segment: 'text'
+   00001090 '_MotorStop'
+   000010A6 '_DrillUp'
+   00001146 '_NStep'
+   000010B1 '_Alarm'
+   000012B5 '_Outzero'
+   00001242 '_ToRefPos'
+   0000106C '_MotorStart'
+   00001061 '_init_drill'
+   000011B3 '_DrillDownTest'
+   000012E3 '_Outone'
+   00001214 '_DrillHole'
+   0000109B '_DrillDown'
+   00001261 '_DrillAuto'
+   000010F7 '_Step'
+  in segment: 'bss'
+   0000174A '_DCShadow'
+
+ in module: 'clock' of type 'O12' defined in file 'clock.o12'
+  in segment: 'text'
+   0000136D '_hold'
+   0000130F '_init_clock'
+   00001356 '_get_time'
+   0000133D '_clock_inter'
+  in segment: 'bss'
+   0000174B '_counter'
+
+ in module: '_clock' of type 'O12' defined in file '_clock.o12'
+  in segment: 'text'
+   000013A9 '__init_irq'
+   000013AC '_irq'
+
+ in module: 'keyboardML15' of type 'O12' defined in file 'keyboardML15.o12'
+  in segment: 'text'
+   000013B0 '_get_key'
+
+ in module: '_add32' of type 'O12' defined in file '_add32.o12'
+  in segment: 'text'
+   000013CC 'add32'
+
+ in module: '_cmp32' of type 'O12' defined in file '_cmp32.o12'
+  in segment: 'text'
+   000013DB 'cmp32'
+
+ in module: '_div32' of type 'O12' defined in file '_div32.o12'
+  in segment: 'text'
+   000014C8 'divs32'
+   000013F4 'divu32'
+
+ in module: '_and32' of type 'O12' defined in file '_and32.o12'
+  in segment: 'text'
+   00001591 'and32'
+
+ in module: '_mul32' of type 'O12' defined in file '_mul32.o12'
+  in segment: 'text'
+   00001633 'muls32'
+   000015A0 'mulu32'
+
+ in module: '_or32' of type 'O12' defined in file '_or32.o12'
+  in segment: 'text'
+   000016FC 'or32'
+
+ in module: '_shl32' of type 'O12' defined in file '_shl32.o12'
+  in segment: 'text'
+   0000170B 'shl32'
+
+ in module: '_sub32' of type 'O12' defined in file '_sub32.o12'
+  in segment: 'text'
+   00001724 'sub32'
+---
+ End of listfile

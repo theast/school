@@ -1,0 +1,313 @@
+# ------------------------------------------------------------------------------
+# Start listening and handle incoming connections in board() function
+# ------------------------------------------------------------------------------
+def start_board():
+  ip = mycontext['ip']
+  port = mycontext['port']
+  print "Listening on IP " + str(ip) +" port " + str(port)
+  try:
+    listencommhandle = waitforconn(ip, port, board_connection_handler)
+  except Exception, e:
+    print "Exception in start_board: %s, %s\n" %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Called when an incoming message is received.
+# --> Important starting point
+# ------------------------------------------------------------------------------
+def board_connection_handler(ip, port, sockobj, thiscommhandle, listencommhandle):
+  try:
+    msgheader = sockobj.recv(1024) # Receive message
+
+    # React depending on message type: HTTP GET or POST, or some other type of communication.
+    if msgheader.startswith( 'GET' ):
+      get_board_handler(msgheader, sockobj, thiscommhandle)
+    elif msgheader.startswith('POST'):
+      post_handler(msgheader, sockobj, thiscommhandle)
+    elif msgheader.startswith('LEADER MESSAGE'):
+      # Extract entryID from msgheader
+      entryID = int(msgheader.split('\n')[0].split(":")[1].strip())
+      # Remove entryID from msgheader
+      postMsg = "\n".join(msgheader.split('\n')[1:])
+
+      modification_handler(postMsg, entryID)
+    else:
+      received_election_vote(msgheader)
+
+  except Exception, e:
+    print "Exception in board: %s, %s\n" %(type(e), e)
+    htmlresponse = mycontext['status_template'] % ('red', "404 Not Found\n")
+    res = make_http_response(404, 'Not Found', htmlresponse)
+    sockobj.send(res)
+    stopcomm(thiscommhandle)
+
+# ------------------------------------------------------------------------------
+# Handles initial GET request from browser, outputs HTML string and closes socket.
+# ------------------------------------------------------------------------------
+def get_board_handler(msgheader, sockobj, thiscommhandle):
+  htmlresponse = generate_html_page()
+  res = make_http_response(200, 'OK', htmlresponse)
+  try:
+    sockobj.send(res)
+    stopcomm(thiscommhandle)
+  except Exception, e:
+    print "Could not get board: %s, %s\n" %(type(e), e)
+# ------------------------------------------------------------------------------
+# Handles initial GET request from browser, outputs HTML string and closes socket.
+# ------------------------------------------------------------------------------
+def post_handler(msgheader, sockobj, thiscommhandle):
+  # extract the query from the HTTP request
+  query = extract_http_request_contents(msgheader)
+  # extract the query parameters
+  parameters = extract_parameters_from_query(query)
+
+  # Confirmation message
+  htmlresponse = mycontext['status_template'] % ('green', "200 OK\n" + msgheader)
+  res = make_http_response(200, 'OK', htmlresponse)
+  sockobj.send(res)
+  stopcomm(thiscommhandle)
+
+  # Check if i'm the leader
+  if mycontext['ip'] == mycontext['leader']:
+      mycontext['lock'].acquire()
+      # Change the Host of the Post message to the leaders ip
+      msgheader = 'LEADER MESSAGE: ' + str(mycontext['msgid']) + '\n' + msgheader
+
+      # Modify local blackboard
+      modification_handler(msgheader, mycontext['msgid'])
+      mycontext['lock'].release()
+
+      # Send the message to all other vessels
+      send_blackboard(msgheader)
+  else:
+      # Send local POST to leader.
+      send_message(mycontext['leader'], mycontext['port'], msgheader)
+
+# ------------------------------------------------------------------------------
+# Handles blackboard modifications
+# Argument: Message header
+# ------------------------------------------------------------------------------
+def modification_handler(msgheader, entryID):
+  # extract the query from the HTTP request
+  query = extract_http_request_contents(msgheader)
+  # extract the query parameters
+  parameters = extract_parameters_from_query(query)
+
+  if 'delete' in parameters:
+    # Extract id of entry from message header
+    postId = msgheader.split('/entries/')[1].split(' ')[0]
+    if parameters['delete'] == '0':
+      modify_entry(postId, parameters['entry'])
+    elif parameters['delete'] == '1':
+      delete_entry(postId)
+  else:
+    add_entry(parameters['entry'], entryID)
+
+
+# ------------------------------------------------------------------------------
+# Wrap into HTTP headers
+# ------------------------------------------------------------------------------
+def make_http_response(status, status_text, htmlresponse):
+    response_template = "HTTP/1.1 %d %s\r\nContent-type: text/html\r\nContent-length: %i\r\n\r\n%s"
+    return response_template % (status, status_text, len(htmlresponse), htmlresponse)
+
+# ------------------------------------------------------------------------------
+# Utility function to extract the contents (payload) from HTTP request
+# ------------------------------------------------------------------------------
+def extract_http_request_contents(header):
+  # find content length
+  content_length = header.split('Content-Length: ')[1]
+  content_length = int(content_length.split('\r\n')[0])
+
+  # extract the http response body and discard the header
+  contents = header[-content_length:]
+  return contents
+
+# ------------------------------------------------------------------------------
+# Utility function to extract query parameter from HTML query
+# ------------------------------------------------------------------------------
+def extract_parameters_from_query(msg):
+  # extract the query parameters as a dictionary: {name:value}
+  # example input format: comment=aa&ip=127.0.0.1&port=63101&action=Delete
+  parameters = {}
+  arr = msg.split('&')
+  for a in arr:
+    pp = a.split('=')
+    if len(pp)>1:
+      parameters[pp[0]] = pp[1]
+  return parameters
+
+# ------------------------------------------------------------------------------
+# Adds new entry to blackboard
+# Argument: Value of the new entry.
+# ------------------------------------------------------------------------------
+def add_entry(entry, entryID):
+  if len(mycontext['entries']) == 0:
+    mycontext['starttime'] = getruntime()
+  mycontext['msgid'] += 1
+  mycontext['entries'][entryID] = entry
+  if len(mycontext['entries']) == 10:
+    print "TIME: \n\n\n\n\n" + str(getruntime()-mycontext['starttime'])
+
+# ------------------------------------------------------------------------------
+# Modifies given entry from blackboard
+# Arguments: Message id of the modified entry and the value of the new entry.
+# ------------------------------------------------------------------------------
+def modify_entry(msgid, newEntry):
+  try:
+    mycontext['entries'][int(msgid)] = newEntry
+  except Exception, e:
+    print "Modify error: index %d does not exist." %int(msgid)
+
+# ------------------------------------------------------------------------------
+# Deletes given entry from blackboard
+# Argument: Message id of entry that is deleted.
+# ------------------------------------------------------------------------------
+def delete_entry(msgid):
+  try:
+    del mycontext['entries'][int(msgid)]
+  except Exception, e:
+    print "Deletion error: index %d does not exist." %int(msgid)
+
+# ------------------------------------------------------------------------------
+# Sends incoming message header to all connected vessels
+# Argument: Message header from incoming message
+# ------------------------------------------------------------------------------
+def send_blackboard(msgheader):
+  for vessel in mycontext['vessels']:
+    ip, port = vessel.split(":")
+    try:
+      # Send to all vessels except yourself
+      if ip != mycontext['ip']:
+        send_message(ip, port, msgheader)
+    except Exception, e:
+      print "Exception in send_blackboard: %s, %s\n" %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Sends a message to the next vessel in the ring topology
+# Arguments: The origin of the election, the ip of the leader of the election
+#            and the value of the leader.
+# ------------------------------------------------------------------------------
+def send_to_next_vessel(origin, ip, electionNr):
+  election = origin + ":" + ip + ":" + str(electionNr)
+  nextVesselIp, nextVesselPort = mycontext['nextVessel'].split(':')
+  send_message(nextVesselIp, nextVesselPort, election)
+
+# ------------------------------------------------------------------------------
+# Sends a message to a certain node
+# Arguments: Ip and port of receiving node, message content
+# ------------------------------------------------------------------------------
+def send_message(ip, port, msg):
+  try:
+    nodeComm = openconn(ip, int(port))
+    nodeComm.send(msg)
+    nodeComm.close()
+  except Exception, e:
+    print "Message delivery failed: %s, %s\n" %(type(e), e)
+
+# ------------------------------------------------------------------------------
+# Received election vote from neighbor vessel.
+# If the received vote origins from this vessel, the election has finished.
+# Argument: A string containing the origin of the election, the leaders ip
+#           and the value of the leaders vote
+# ------------------------------------------------------------------------------
+def received_election_vote(election):
+  origin, leader, maxValue = election.split(":")
+
+  # If the election origins from this vessel, the election has finished
+  if origin == mycontext['ip']:
+    mycontext['leader'] = leader
+    mycontext['leaderValue'] = maxValue
+    print 'Leader: ' + leader
+  else:
+    # Election is not done, check if this vessels ElectionNr is larger than
+    # the current largest.
+    if float(mycontext['electionNr']) > float(maxValue):
+      send_to_next_vessel(origin, mycontext['ip'], mycontext['electionNr'])
+    else:
+      send_to_next_vessel(origin, leader, maxValue)
+
+# ------------------------------------------------------------------------------
+# Outputs the blackboard html
+# ------------------------------------------------------------------------------
+def generate_html_page():
+  #Initialize blackboard content
+  entriesDict = mycontext['entries']
+  entries = ""
+
+  # adds together the html of all entrys
+  for msgid, msg in entriesDict.iteritems():
+    entry = mycontext['entry_template'] %('entries/%d' % (msgid), msgid, msg)
+    entries = "".join([entries, entry])
+
+  # dynamic title showing Ip address, port and up time.
+  title = 'Cool board @ %s:%d. Up time: %d <br /> Leader: %s Value: %s' %( str(mycontext['ip']), mycontext['port'], int(getruntime()), str(mycontext['leader']), mycontext['leaderValue'] )
+  content = mycontext['boardcontents_template'] %( title, entries )
+  fullpage_h = mycontext['frontpage_header_template'] + content
+  fullpage = fullpage_h + mycontext['frontpage_footer_template'] % mycontext['authors']
+  return fullpage
+
+# ------------------------------------------------------------------------------
+# Main entry point of the program. Initalizes global variables in mycontext
+# and calls start_board() which opens a socket for incoming connections.
+# ------------------------------------------------------------------------------
+if callfunc == 'initialize':
+  # whenever this vessel gets a connection on its IP:port it'll call function board_connection_handler
+  if len(callargs) == 1 or len(callargs) == 2:
+    port = int(callargs[0])
+    if len(callargs) == 2:
+      ip = str(callargs[1])
+    else:
+      try:
+        ip = getmyip()
+      except Exception, e:
+        print "Could not get an IP\n"
+        print (type(e), e)
+        raise
+
+  # Fail if we don't have 1 or 2 arguments
+  else:
+    raise Exception("Usage: python <path to repy.py> <path to restrictions.default> skeleton2016.repy <port> [ip (optional)]")
+
+  #Initialize Port and IP
+  mycontext['port'] = port
+  mycontext['ip'] = ip
+
+  #read html template files
+  mycontext['entry_template'] = file("entry_template.html").read()
+  mycontext['boardcontents_template'] = file("boardcontents_template.html").read()
+  mycontext['frontpage_header_template'] = file("board_frontpage_header_template.html").read()
+  mycontext['frontpage_footer_template'] = file("board_frontpage_footer_template.html").read()
+  mycontext['status_template'] = file("status_template.html").read()
+
+  mycontext['authors'] = "Adrian Gashi & Theodor Aastrand"
+  mycontext['msgid'] = 0
+  mycontext['entries'] = {}
+  mycontext['electionNr'] = randomfloat()
+  mycontext['nextVessel'] = -1
+  mycontext['leader'] = ""
+  mycontext['leaderValue'] = ""
+  mycontext['starttime'] = 0
+  mycontext['lock'] = getlock()
+
+  # Initialize array of all connected vessels, read from neighborlist.txt
+  try:
+    vesselsFile = open('neighborlist.txt', 'r')
+    mycontext['vessels'] = []
+    vesselList = vesselsFile.readlines()
+    for index in range(0, len(vesselList)):
+      # Add vessel ip and port to vessels array
+      mycontext['vessels'].append(vesselList[index].strip())
+      # Find next vessel in ring topology
+      vesselIp = vesselList[index].split(':')[0]
+      if vesselIp == mycontext['ip']:
+        if index == (len(vesselList) - 1):
+          mycontext['nextVessel'] = vesselList[0]
+        else:
+          mycontext['nextVessel'] = vesselList[index+1]
+
+  except Exception, e:
+    print "File read failed: %s, %s\n" %(type(e), e)
+
+  # Start the election
+  settimer(5, send_to_next_vessel, [mycontext['ip'], mycontext['ip'], mycontext['electionNr']])
+  start_board()

@@ -1,0 +1,58 @@
+Assignment 1:
+Initially we tried to solve the first assignment by splitting the list into two parts and run each part in parallel. This gave us some speed up, but we figured that there was a better way to do it. So instead we decided parallelise the function to every element in the list. This means that every element in the list has its own spark, and that for very long lists we will have alot of sparks. When we tried this method we had great speed-up and all the sparks we created were converted, so we figured that this was a good method.
+
+The method discussed above were applied to all sub-assignments (A, B, C, D) with succesful results. We also think it's worth mentioning that we tried to force the computation of the function on the element, but this yielded in worse results.
+
+Running jackknife with the original map function takes: 5.558s 
+Running jackknife with the pmap function (par and pseq) takes: 3.123 with 5500 sparks converted
+Running jackknife with the rpar (rpar and rseq) function takes: 3.157s with 5500 sparks converted
+Running jackknife with the rparStratmap function takes: 3.232s 5500 sparks converted
+Running jackknife with the pmonadMap function takes 3.547s
+
+So our parallelized versions of the map function reduced the running time with atleast ~2 seconds
+
+benchmarking jackknife (Runned on a different computer than above, thus different times)
+time                 4.521 s    (4.493 s .. 4.575 s)
+                     1.000 R▒   (1.000 R▒ .. 1.000 R▒)
+mean                 4.529 s    (4.519 s .. 4.541 s)
+std dev              11.11 ms   (0.0 s .. 12.74 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking jackknife_a
+time                 2.584 s    (1.108 s .. 4.812 s)
+                     0.924 R▒   (0.836 R▒ .. 1.000 R▒)
+mean                 3.142 s    (2.750 s .. 3.487 s)
+std dev              560.4 ms   (0.0 s .. 596.8 ms)
+variance introduced by outliers: 47% (moderately inflated)
+
+benchmarking jackknife_b
+time                 2.738 s    (2.716 s .. 2.756 s)
+                     1.000 R▒   (1.000 R▒ .. 1.000 R▒)
+mean                 2.741 s    (2.737 s .. 2.744 s)
+std dev              5.297 ms   (0.0 s .. 5.937 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking jackknife_c
+time                 3.216 s    (2.528 s .. 4.084 s)
+                     0.992 R▒   (0.973 R▒ .. 1.000 R▒)
+mean                 2.987 s    (2.745 s .. 3.136 s)
+std dev              225.7 ms   (0.0 s .. 257.8 ms)
+variance introduced by outliers: 21% (moderately inflated)
+
+benchmarking jackknife_d
+time                 3.197 s    (2.960 s .. 3.596 s)
+                     0.998 R▒   (0.997 R▒ .. 1.000 R▒)
+mean                 3.121 s    (3.078 s .. 3.207 s)
+std dev              74.48 ms   (543.9 as .. 74.80 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+--------
+
+Assignment 2:
+We parallelized mergesort using two different methods; (par and pseq) and (rpar and rseq), because we thought these methods were the most inituative. On top of this we also implemented a depth parameter for granularity control. This is because after some recursion steps it's simply not worth to spawn a thread. We played around a little bit  with the depth parameter but we realized we got optimal results from using the depth 2.We believe that we got the best results with depth 2 since the computer we were running mergesort on only has 2 cores, worth noting is that if we ran the mergesort without granularity control we ended up with alot of fizzled sparks.
+
+Our original implementation of mergesort takes: 7.513s. 
+Running mergesort using (par and pseq) with depth 2 takes: 5.522s 2 sparks converted 1 gc'ed
+Running mergesort using (rpar and rseq) with depth 2 takes: 5.281s 2 sparks converted 1 gc'ed.
+
+As you can see we recieved some speed up, but it is not as great as we intially expected and we think that this is because a large part of the algorithm (the merge part) is being runned sequentially.

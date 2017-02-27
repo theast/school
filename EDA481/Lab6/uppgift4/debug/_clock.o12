@@ -1,0 +1,15 @@
+mod:_clock:O12:_clock.o12
+seg:text:7
+C:text	10EF3D1600000B
+RG:text:_clock:00000004:O:W:_clock_inter:8
+G:text:_clock:00000000:__init_irq
+G:text:_clock:00000003:_irq
+SY:A:M:_clock$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift3/src/asm/_clock.s12
+SY:A:X:_clock:5:text:0
+SY:A:X:_clock:6:text:2
+SY:A:X:_clock:8:text:3
+SY:A:X:_clock:9:text:6
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

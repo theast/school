@@ -1,0 +1,39 @@
+mod:keyboardML15:O12:keyboardML15.o12
+seg:text:28
+seg:bss:0
+seg:data:0
+seg:rodata:0
+C:text	1B9FF609C06B80C18024F7F609C06B80
+C:text	C18025F7E68087C47F1B813D
+G:text:keyboardML15:00000000:_get_key
+SY:C:M:keyboardML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/keyboardML15.c
+SY:C:F:keyboardML15:text:_get_key:00000000:4
+SY:C:X:keyboardML15:4:1:text:0
+SY:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SY:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SY:C:S:L:keyboardML15:get_key:data:0:(typ4)
+SY:C:X:keyboardML15:6:7:text:2
+SY:C:X:keyboardML15:7:7:text:B
+SY:C:X:keyboardML15:9:1:text:19
+SY:C:Z:keyboardML15:9:1:text:19
+SY:C:E:keyboardML15:text:_get_key:0000001C:9
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

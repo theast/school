@@ -1,0 +1,72 @@
+mod:displayML15:O12:displayML15.o12
+seg:text:113
+seg:bss:0
+seg:data:0
+seg:rodata:0
+C:text	1B9FC6017B09C2C6807B09C37909C269
+C:text	80E680C10625062012628020F4E68087
+C:text	E383B745E6007B09C320EE7909C37909
+C:text	C31B813D
+C:text	1B98C6056B81E7812C1120266381CE00
+C:text	0AEC8ACD0000116D8A20EBEC8ACE000A
+C:text	18101A826B80E681B7141AE6E6806B00
+C:text	20DA1A82341600001B821B883D
+RG:text:displayML15:0000006A:O:W:_display_digits:147
+G:text:displayML15:00000000:_display_digits
+G:text:displayML15:00000034:_display_dec
+SY:C:M:displayML15$C:/Users/Smurfen/Dropbox/Chalmers/EDA481/Lab6/uppgift2/src/c/displayML15.c
+SY:C:F:displayML15:text:_display_digits:00000000:4
+SY:C:X:displayML15:4:1:text:0
+SY:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SY:C:S:L:displayML15:display_digits:digits:3:(typ11)
+SY:C:S:F:displayML15:__func__:___func__:(typ11)
+SY:C:S:L:displayML15:display_digits:i:0:(typ4)
+SY:C:X:displayML15:6:31:text:2
+SY:C:X:displayML15:7:34:text:7
+SY:C:X:displayML15:8:31:text:C
+SY:C:X:displayML15:9:6:text:F
+SY:C:X:displayML15:9:13:text:11
+SY:C:X:displayML15:9:20:text:19
+SY:C:X:displayML15:10:39:text:1D
+SY:C:X:displayML15:11:31:text:2B
+SY:C:X:displayML15:12:31:text:2E
+SY:C:X:displayML15:13:1:text:31
+SY:C:Z:displayML15:13:1:text:31
+SY:C:E:displayML15:text:_display_digits:00000034:13
+SY:C:F:displayML15:text:_display_dec:00000034:15
+SY:C:X:displayML15:15:1:text:34
+SY:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SY:C:S:L:displayML15:display_dec:dec:10:(typ12)
+SY:C:S:F:displayML15:__func__:___func__:(typ11)
+SY:C:S:L:displayML15:display_dec:digits:2:(typ18-displayML15)
+SY:C:S:L:displayML15:display_dec:i:1:(typ3)
+SY:C:X:displayML15:18:6:text:36
+SY:C:X:displayML15:18:13:text:3A
+SY:C:X:displayML15:18:21:text:40
+SY:C:X:displayML15:19:22:text:4F
+SY:C:X:displayML15:20:22:text:66
+SY:C:X:displayML15:21:1:text:6E
+SY:C:Z:displayML15:21:1:text:6E
+SY:C:E:displayML15:text:_display_dec:00000071:21
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T:displayML15: typ16-displayML15 A (-1)(typ4)
+SY:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

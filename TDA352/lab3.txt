@@ -1,0 +1,112 @@
+Part (A):
+
+Question 0:
+Y1 Y2 Y3 Y4 M1 M2 D1 D2
+1  9  9  3  1  1  0  9
+
+Question 1:
+m1(x) = v1 − Y1x + M1x^2 = m1(x) = 1 - x + x^2 
+m1(1) = 1 - 1 + 1^2 = 1 
+m1(2) = 1 - 2 + 2^2 = 3
+m1(3) = 1 - 3 + 3^3 = 7
+Thus, m1 sends 1 to A1, 3 to A2 and 7 to A3.
+
+m2(x) = v2 − Y2x + M2x^2 = m2(x) = 1 - 9x + x^2
+m2(1) = 1 - 9*1 + 1^2 = -7
+m2(2) = 1 - 9*2 + 2^2 = -13
+m2(3) = 1 - 9*3 + 3^2 = -17
+Thus, m2 send -7 to A1, -13 to A2 and -17 to A3.
+
+m3(x) = v3 − Y3x + D1x^2 = m3(x) = 1 - 9x
+m3(1) = 1 - 9*1 = -8
+m3(2) = 1 - 9*2 = -17
+m3(3) = 1 - 9*3 = -26
+Thus, m3 sends -8 to A1, -17 to A2 and -26 to A3.
+
+m4(x) = v4 − Y4x + D2x^2 = m4(x) = 1 - 3x + 9x^2
+m4(1) = 1 - 3*1 - 9*1^2 = 7
+m4(2) = 1 - 3*2 - 9*2^2 = 31
+m4(3) = 1 - 3*3 - 9*3^2 = 73
+Thus, m4 send 7 to A1, 31 to A2 and 73 to A3.
+
+Question 2:
+Each auditor will receive i points (one for each member). The auditor will then sum these points and send them back to all the members of the society.
+A1 receives: 1, -7, -8, 7. The sum of the values that A1 recieved is therefore: sum(1, -7, -8, 7) = -7
+A2 receives: 3, -13, -17, 31. The sum of the values that A2 recieved is therefore: sum(3, -13, -17, 31) = 4
+A3 receives: 7, -17, -26, 73. The sum of the values that A3 receieved is therefore: sum(7, -17, -26, 73) = 37
+
+Question 3:
+Each society member will now recieve one sum from each auditor. The society member can now form a new polynomial using lagrange interpolation:
+A1 = 1, sum(A1) = -7
+A2 = 2, sum(A2) = 4
+A3 = 3, sum(A3) = 37
+
+L(x) = -7*(((x-2)/(1-2))*((x-3)/(1-3)))+4*(((x-1)/(2-1))*((x-3)/(2-3)))+37*(((x-1)/(3-1))*((x-2)/(3-2))) = 11x^2-22x+4
+Where the constant factor of this polynomial corresponds to the result of the voting. I.e in this case 4 positive votes.
+
+Question 4:
+If we assume that all auditors and members except m1 are honest, m1 can simply manipulate the protocol in the following manner:
+m1(x) = (number of members) − Y1x + M1x^2. Thus, m1 will always send a value equal to the number of members in the society, which ultimately will 
+result in a positive vote.
+
+Part (B):
+
+Task 1:
+
+Question 1a:
+
+1. A -> B: {A, {M}eb}eb
+2. B -> A: {M}ea
+
+An adversary C picks up message 2: {M}ea. In order to retrieve the plain-text message C could simply:
+
+3. C -> A: {C, {M}ea}ea
+4. A -> C: {M}ec
+
+C will recieve the message from A and he can simply decrypt it using his own private decryption key.
+
+Question 1b:
+
+1. A -> B: {A, {M}eb}eb
+2. B -> A: {M}ea
+
+Now adversary C picks up message 1: {A, {M}eb}eb. C can now resend this message to B.
+
+3. C -> B: {C, {A, {M}eb}eb}eb
+4. B -> C: {A, {M}eb}ec
+
+C can now decrypt this message and retrieve {M}eb. C will now resend this message to B.
+
+5. C -> B: {C, {M}eb}eb
+6. B -> C: {M}ec
+
+C will now recieve {M}ec which is easy to decrypt using C's private decrypt key. 
+
+Task 2:
+
+Question 2: If we assume that the adversary C is a legitimate user in the system and that A tries to set-up a connection with C.
+
+Connection 1 corresponds to A setting up a connection to C
+Conenction 2 corresponds to C pretending to be A and setting up a connection with B
+
+A tries to set-up connection with C
+1. A -> C: {A, na}ec 
+
+C decrypts what A sent and tries to set-up a new connection with B, while pretending to be A.
+2. C -> B: {A, na}eb
+
+B will now decrypt what he just recieved and respond to A, with A's nonce and a random nonce B just chosed.
+2. B -> A: {na, nb}e
+
+A will now decrypt what he just recieved. Indeed it was the nonce he just sent. 
+Since A think he just set-up a connection with C he will respond to C. The problem is that A actually just set-up a connection with B.
+Therefore he will respond to C with B's nonce.
+1. A -> C: {nb}ec
+
+C can now decrypt the message A just sent and retrieve B's nonce. So C can yet again pretend to be A and complete the connection by sending B's nonce to B.
+Thus A and B have set-up a connection, with the problem that C knows b's nonce.
+2. C -> B: {nb}eb
+
+
+
+

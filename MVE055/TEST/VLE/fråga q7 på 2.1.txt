@@ -1,0 +1,12 @@
+﻿fråga Q7
+
+Årsnederbörden i mm på en viss ort antas vara normalfördelad med μ = 310 mm och σ = 30 mm. Årsnederbörden olika år antas vara oberoende.
+
+Bestäm sannolikheten att under 10 år årsnederbörden åtminstone 3 år överstiger 355 mm.
+
+
+
+värdet för ett år (i det här fallet 0.06681) fås mha help tables.
+Help table High, Mean = 310, Sdev = 30 och x = 355
+
+1 - (sum (y = 0 to (3-1)) (10)!/((10 - y)!*y!) * 0.06681^y * (1-0.06681)^(10 - y))

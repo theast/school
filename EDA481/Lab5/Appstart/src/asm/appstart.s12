@@ -1,0 +1,10 @@
+	segment		init
+	export 		_exit
+	import		_main
+	function	__start,__start_end
+__start
+	LDS		#$2FFF
+	JSR		_main
+_exit:	NOP
+	BRA		_exit
+__start_end

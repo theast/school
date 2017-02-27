@@ -1,0 +1,7 @@
+:iosim:2:0:1536:
+:iosim:2:0:1537:
+:iosim:12:0:1024:
+:iosim:12:0:1025:
+:emul:1
+:debug:1
+:targ:MC9S12DG256
